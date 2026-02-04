@@ -1,7 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { supabase } from '../supabaseClient';
 import AdCard from '../components/AdCard';
 import { Icon } from '../components/Icon';
@@ -50,7 +48,8 @@ const SellerProfile: React.FC<SellerProfileProps> = ({ onNavigate, id }) => {
                 const { data: adsData } = await supabase
                     .from('listings')
                     .select('*')
-                    .eq('owner_id', id);
+                    .eq('owner_id', id)
+                    .order('created_at', { ascending: false });
 
                 if (adsData) {
                     // Map to Ad interface
@@ -59,10 +58,10 @@ const SellerProfile: React.FC<SellerProfileProps> = ({ onNavigate, id }) => {
                         title: item.title,
                         price: item.price || 0,
                         category: '', // TODO: join to get category slug if needed
-                        location: item.location || '',
+                        location: item.city || item.location || '',
                         state: item.state || 'SC',
-                        image: item.image_url || 'https://via.placeholder.com/300',
-                        images: item.images || [],
+                        image: Array.isArray(item.images) && item.images.length > 0 ? item.images[0] : 'https://via.placeholder.com/300',
+                        images: Array.isArray(item.images) ? item.images : [],
                         description: item.description || '',
                         attributes: (item.attributes as Record<string, string | number>) || {},
                         createdAt: item.created_at || new Date().toISOString(),
@@ -84,9 +83,7 @@ const SellerProfile: React.FC<SellerProfileProps> = ({ onNavigate, id }) => {
     if (!seller) return <div className="min-h-screen flex items-center justify-center">Vendedor não encontrado.</div>;
 
     return (
-        <div className="flex flex-col min-h-screen bg-gray-50">
-            <Header onNavigate={onNavigate} session={null} />
-
+        <div className="min-h-screen bg-gray-50">
             <div className="container mx-auto px-4 py-8">
 
                 {/* Profile Header */}
@@ -143,8 +140,6 @@ const SellerProfile: React.FC<SellerProfileProps> = ({ onNavigate, id }) => {
                 </div>
 
             </div>
-
-            <Footer />
         </div>
     );
 };

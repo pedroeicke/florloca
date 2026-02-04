@@ -1,8 +1,9 @@
 
+import { buildLocationSlug, extractRatesFromAttributes, getMinRateValue, slugify } from '../utils';
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import { Ad } from '../types';
-import { CATEGORIES, CATEGORY_DB_MAPPING, SUBCATEGORY_DB_MAPPING, STATES } from '../constants';
+import { CATEGORIES, CATEGORY_DB_MAPPING, STATE_DB_MAPPING, SUBCATEGORY_DB_MAPPING, STATES } from '../constants';
 import AdCard from '../components/AdCard';
 import { Icon } from '../components/Icon';
 import SEO from '../components/SEO';
@@ -33,6 +34,8 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
     condition: ''
   });
 
+  const [sortOption, setSortOption] = useState<'recent' | 'relevance' | 'price_asc' | 'price_desc'>('recent');
+
   // Update filters when params change
   useEffect(() => {
     if (params) {
@@ -54,9 +57,9 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
       try {
         let query = supabase
           .from('listings')
-          .select('*, categories!inner(slug, name)');
+          .select('*, slug, categories!inner(slug, name)');
+        query = query.order('created_at', { ascending: false });
 
-        // Apply filters
         if (filters.category) {
           const mappedSlugs = CATEGORY_DB_MAPPING[filters.category];
           if (mappedSlugs) {
@@ -66,20 +69,25 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
           }
         }
 
-        if (filters.subcategory && filters.subcategory !== '' && filters.subcategory !== 'undefined') {
-          const mappedSubSlug = SUBCATEGORY_DB_MAPPING[filters.subcategory];
-          if (mappedSubSlug) {
-            // If subcategory maps to a category slug, filter by that slug
-            // This overrides the broader category filter above effectively, which is fine (it's a subset)
-            query = query.eq('categories.slug', mappedSubSlug);
-          } else {
-            // Fallback to filtering by text if no mapping (legacy behavior or unmapped)
-            query = query.eq('subcategory', filters.subcategory);
-          }
+        const mappedSubSlug = filters.subcategory && filters.subcategory !== '' && filters.subcategory !== 'undefined'
+          ? SUBCATEGORY_DB_MAPPING[filters.subcategory]
+          : undefined;
+
+        if (mappedSubSlug) {
+          query = query.eq('categories.slug', mappedSubSlug);
+        } else if (filters.subcategory && filters.subcategory !== '' && filters.subcategory !== 'undefined') {
+          query = query.eq('subcategory', filters.subcategory);
         }
 
         if (filters.state) {
-          query = query.eq('state', filters.state);
+          const mappedState = STATE_DB_MAPPING[filters.state];
+          if (mappedState) {
+            query = query.in('state', [filters.state, mappedState]);
+          } else {
+            const reverseMapped = Object.entries(STATE_DB_MAPPING).find(([, full]) => full === filters.state)?.[0];
+            if (reverseMapped) query = query.in('state', [filters.state, reverseMapped]);
+            else query = query.eq('state', filters.state);
+          }
         }
 
         if (filters.minPrice) {
@@ -89,18 +97,6 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
           query = query.lte('price', Number(filters.maxPrice));
         }
 
-        // Dynamic JSONB filters
-        if (filters.minYear) {
-          // Note: casting depends on how data is stored. Assuming number.
-          // JSONB operators in Supabase JS can be tricky. Using simple approach for now.
-          // For simple key-value in jsonb:
-          // query = query.filter('attributes->>year', 'gte', filters.minYear)
-          // But let's verify if we need to fetch all and filter in memory for complex json logic 
-          // if DB structure is simple.
-          // Let's rely on basic filters for now and maybe filter complex attributes in memory if needed
-          // or use proper Postgrest syntax if confident.
-        }
-
         const { data, error } = await query;
 
         if (error) {
@@ -108,17 +104,27 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
           return;
         }
 
-        if (data) {
-          const mappedAds: Ad[] = data.map((item: any) => ({
+        if (data && data.length > 0) {
+          const mappedAds: Ad[] = data.map((item: any) => {
+            const attrs = (item.attributes as any) || {};
+            const derivedRates = extractRatesFromAttributes(attrs);
+            const derivedMinRate = derivedRates.length > 0 ? getMinRateValue(derivedRates) : null;
+            const derivedPrice =
+              typeof item.price === 'number' && item.price > 0
+                ? item.price
+                : (typeof derivedMinRate === 'number' ? derivedMinRate : 0);
+
+            return {
             id: item.id,
+            slug: item.slug || undefined,
             title: item.title,
-            price: item.price || 0,
+            price: derivedPrice,
             category: item.categories?.slug || 'geral',
             subcategory: item.subcategory || undefined,
-            location: item.location || '',
+            location: item.city || item.location || '',
             state: item.state || 'SC',
-            image: item.image_url || 'https://via.placeholder.com/300',
-            images: item.images || [],
+            image: Array.isArray(item.images) && item.images.length > 0 ? item.images[0] : 'https://via.placeholder.com/300',
+            images: Array.isArray(item.images) ? item.images : [],
             description: item.description || '',
             attributes: (item.attributes as Record<string, string | number>) || {},
             createdAt: item.created_at || new Date().toISOString(),
@@ -127,7 +133,8 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
             verified: item.verified || false,
             online: false,
             age: item.age || undefined
-          }));
+            };
+          });
 
           // Client-side filtering for complex JSONB attributes if not done in DB
           let result = mappedAds;
@@ -135,7 +142,30 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
           if (filters.maxYear) result = result.filter(ad => Number(ad.attributes?.year || 0) <= Number(filters.maxYear));
           if (filters.bedrooms) result = result.filter(ad => Number(ad.attributes?.bedrooms || 0) >= Number(filters.bedrooms));
 
-          setListingAds(result);
+          const sorted = [...result].sort((a, b) => {
+            if (sortOption === 'price_asc') return (a.price || 0) - (b.price || 0);
+            if (sortOption === 'price_desc') return (b.price || 0) - (a.price || 0);
+            if (sortOption === 'recent') return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+
+            const tierRank = (tier?: Ad['tier']) => (tier === 'premium' ? 3 : tier === 'highlight' ? 2 : 1);
+            const verifiedRank = (v?: boolean) => (v ? 1 : 0);
+            const vipRank = (v?: boolean) => (v ? 1 : 0);
+
+            const tierDiff = tierRank(b.tier) - tierRank(a.tier);
+            if (tierDiff !== 0) return tierDiff;
+
+            const verifiedDiff = verifiedRank(b.verified) - verifiedRank(a.verified);
+            if (verifiedDiff !== 0) return verifiedDiff;
+
+            const vipDiff = vipRank(b.isVip) - vipRank(a.isVip);
+            if (vipDiff !== 0) return vipDiff;
+
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          });
+
+          setListingAds(sorted);
+        } else {
+          setListingAds([]);
         }
       } catch (err) {
         console.error('Unexpected error:', err);
@@ -145,7 +175,7 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
     };
 
     fetchAds();
-  }, [filters]); // Re-run when filters change
+  }, [filters, sortOption]); // Re-run when filters/sort change
 
   // Fetch category counts dynamically
   const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
@@ -581,11 +611,15 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
                 Mostrando <span className="font-bold text-gray-900">1-{filteredAds.length}</span> de {filteredAds.length}
               </div>
               <div className="flex items-center gap-4">
-                <select className="bg-transparent text-sm font-medium text-gray-700 focus:outline-none cursor-pointer">
-                  <option>Mais relevantes</option>
-                  <option>Menor preço</option>
-                  <option>Maior preço</option>
-                  <option>Mais recentes</option>
+                <select
+                  className="bg-transparent text-sm font-medium text-gray-700 focus:outline-none cursor-pointer"
+                  value={sortOption}
+                  onChange={(e) => setSortOption(e.target.value as any)}
+                >
+                  <option value="relevance">Mais relevantes</option>
+                  <option value="price_asc">Menor preço</option>
+                  <option value="price_desc">Maior preço</option>
+                  <option value="recent">Mais recentes</option>
                 </select>
               </div>
             </div>
@@ -593,8 +627,22 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
             {/* List */}
             {filteredAds.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredAds.map((ad: Ad) => (
-                  <AdCard key={ad.id} ad={ad} onClick={(id) => onNavigate('detail', { id })} />
+                {filteredAds.map(ad => (
+                  <AdCard
+                    key={ad.id}
+                    ad={ad}
+                    onClick={(id, slug) => {
+                      if (slug && ad.location && ad.category) {
+                        const locationSlug = buildLocationSlug(ad.location, ad.state);
+                        const categorySlug = slugify(ad.category);
+                        onNavigate(`${locationSlug}/${categorySlug}/${slug}`);
+                      } else if (slug) {
+                        onNavigate('anuncio/' + slug);
+                      } else {
+                        onNavigate('detail', { id });
+                      }
+                    }}
+                  />
                 ))}
               </div>
             ) : (

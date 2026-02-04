@@ -6,1362 +6,1362 @@
     <priority>1</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/publish</loc>
+    <loc>https://brickcerto.com.br/publish</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/auth</loc>
+    <loc>https://brickcerto.com.br/auth</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes</loc>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SP&amp;city=sao-paulo-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=MG&amp;city=belo-horizonte-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=DF&amp;city=brasilia-df</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=DF&amp;city=brasilia-df</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=BA&amp;city=salvador-ba</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=BA&amp;city=salvador-ba</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=CE&amp;city=fortaleza-ce</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=PR&amp;city=curitiba-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=PR&amp;city=curitiba-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=AM&amp;city=manaus-am</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=AM&amp;city=manaus-am</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=PE&amp;city=recife-pe</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=PE&amp;city=recife-pe</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=RS&amp;city=porto-alegre-rs</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SC&amp;city=florianopolis-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=GO&amp;city=goiania-go</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=GO&amp;city=goiania-go</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=PA&amp;city=belem-pa</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=PA&amp;city=belem-pa</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SP&amp;city=campinas-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SP&amp;city=campinas-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=MA&amp;city=sao-luis-ma</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=AL&amp;city=maceio-al</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=AL&amp;city=maceio-al</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=RN&amp;city=natal-rn</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=RN&amp;city=natal-rn</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=PI&amp;city=teresina-pi</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=PI&amp;city=teresina-pi</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=PB&amp;city=joao-pessoa-pb</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SE&amp;city=aracaju-se</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SE&amp;city=aracaju-se</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=MT&amp;city=cuiaba-mt</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=MS&amp;city=campo-grande-ms</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=ES&amp;city=vitoria-es</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=ES&amp;city=vitoria-es</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SC&amp;city=joinville-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SC&amp;city=joinville-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=PR&amp;city=londrina-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=PR&amp;city=londrina-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SP&amp;city=sorocaba-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=MG&amp;city=uberlandia-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=acompanhantes&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=acompanhantes&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SP&amp;city=sao-paulo-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=MG&amp;city=belo-horizonte-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=DF&amp;city=brasilia-df</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=BA&amp;city=salvador-ba</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=CE&amp;city=fortaleza-ce</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=PR&amp;city=curitiba-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=AM&amp;city=manaus-am</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=PE&amp;city=recife-pe</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=RS&amp;city=porto-alegre-rs</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SC&amp;city=florianopolis-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=GO&amp;city=goiania-go</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=PA&amp;city=belem-pa</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SP&amp;city=campinas-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=MA&amp;city=sao-luis-ma</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=AL&amp;city=maceio-al</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=RN&amp;city=natal-rn</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=PI&amp;city=teresina-pi</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=PB&amp;city=joao-pessoa-pb</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SE&amp;city=aracaju-se</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=MT&amp;city=cuiaba-mt</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=MS&amp;city=campo-grande-ms</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=ES&amp;city=vitoria-es</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SC&amp;city=joinville-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=PR&amp;city=londrina-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SP&amp;city=sorocaba-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=MG&amp;city=uberlandia-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=autos&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos</loc>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SP&amp;city=sao-paulo-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=MG&amp;city=belo-horizonte-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=DF&amp;city=brasilia-df</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=DF&amp;city=brasilia-df</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=BA&amp;city=salvador-ba</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=BA&amp;city=salvador-ba</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=CE&amp;city=fortaleza-ce</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=PR&amp;city=curitiba-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=PR&amp;city=curitiba-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=AM&amp;city=manaus-am</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=AM&amp;city=manaus-am</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=PE&amp;city=recife-pe</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=PE&amp;city=recife-pe</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=RS&amp;city=porto-alegre-rs</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SC&amp;city=florianopolis-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=GO&amp;city=goiania-go</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=GO&amp;city=goiania-go</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=PA&amp;city=belem-pa</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=PA&amp;city=belem-pa</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SP&amp;city=campinas-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SP&amp;city=campinas-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=MA&amp;city=sao-luis-ma</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=AL&amp;city=maceio-al</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=AL&amp;city=maceio-al</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=RN&amp;city=natal-rn</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=RN&amp;city=natal-rn</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=PI&amp;city=teresina-pi</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=PI&amp;city=teresina-pi</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=PB&amp;city=joao-pessoa-pb</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SE&amp;city=aracaju-se</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SE&amp;city=aracaju-se</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=MT&amp;city=cuiaba-mt</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=MS&amp;city=campo-grande-ms</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=ES&amp;city=vitoria-es</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=ES&amp;city=vitoria-es</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SC&amp;city=joinville-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SC&amp;city=joinville-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=PR&amp;city=londrina-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=PR&amp;city=londrina-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SP&amp;city=sorocaba-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=MG&amp;city=uberlandia-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=imoveis&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=autos&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SP&amp;city=sao-paulo-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=MG&amp;city=belo-horizonte-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=DF&amp;city=brasilia-df</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=BA&amp;city=salvador-ba</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=CE&amp;city=fortaleza-ce</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=PR&amp;city=curitiba-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=AM&amp;city=manaus-am</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=PE&amp;city=recife-pe</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=RS&amp;city=porto-alegre-rs</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SC&amp;city=florianopolis-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=GO&amp;city=goiania-go</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=PA&amp;city=belem-pa</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SP&amp;city=campinas-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=MA&amp;city=sao-luis-ma</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=AL&amp;city=maceio-al</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=RN&amp;city=natal-rn</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=PI&amp;city=teresina-pi</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=PB&amp;city=joao-pessoa-pb</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SE&amp;city=aracaju-se</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=MT&amp;city=cuiaba-mt</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=MS&amp;city=campo-grande-ms</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=ES&amp;city=vitoria-es</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SC&amp;city=joinville-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=PR&amp;city=londrina-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SP&amp;city=sorocaba-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=MG&amp;city=uberlandia-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=empregos&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis</loc>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SP&amp;city=sao-paulo-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=MG&amp;city=belo-horizonte-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=DF&amp;city=brasilia-df</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=DF&amp;city=brasilia-df</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=BA&amp;city=salvador-ba</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=BA&amp;city=salvador-ba</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=CE&amp;city=fortaleza-ce</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=PR&amp;city=curitiba-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=PR&amp;city=curitiba-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=AM&amp;city=manaus-am</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=AM&amp;city=manaus-am</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=PE&amp;city=recife-pe</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=PE&amp;city=recife-pe</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=RS&amp;city=porto-alegre-rs</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SC&amp;city=florianopolis-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=GO&amp;city=goiania-go</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=GO&amp;city=goiania-go</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=PA&amp;city=belem-pa</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=PA&amp;city=belem-pa</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SP&amp;city=campinas-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SP&amp;city=campinas-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=MA&amp;city=sao-luis-ma</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=AL&amp;city=maceio-al</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=AL&amp;city=maceio-al</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=RN&amp;city=natal-rn</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=RN&amp;city=natal-rn</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=PI&amp;city=teresina-pi</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=PI&amp;city=teresina-pi</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=PB&amp;city=joao-pessoa-pb</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SE&amp;city=aracaju-se</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SE&amp;city=aracaju-se</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=MT&amp;city=cuiaba-mt</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=MS&amp;city=campo-grande-ms</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=ES&amp;city=vitoria-es</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=ES&amp;city=vitoria-es</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SC&amp;city=joinville-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SC&amp;city=joinville-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=PR&amp;city=londrina-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=PR&amp;city=londrina-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SP&amp;city=sorocaba-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=MG&amp;city=uberlandia-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=eletronicos&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=imoveis&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SP&amp;city=sao-paulo-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=MG&amp;city=belo-horizonte-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=DF&amp;city=brasilia-df</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=BA&amp;city=salvador-ba</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=CE&amp;city=fortaleza-ce</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=PR&amp;city=curitiba-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=AM&amp;city=manaus-am</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=PE&amp;city=recife-pe</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=RS&amp;city=porto-alegre-rs</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SC&amp;city=florianopolis-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=GO&amp;city=goiania-go</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=PA&amp;city=belem-pa</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SP&amp;city=campinas-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=MA&amp;city=sao-luis-ma</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=AL&amp;city=maceio-al</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=RN&amp;city=natal-rn</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=PI&amp;city=teresina-pi</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=PB&amp;city=joao-pessoa-pb</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SE&amp;city=aracaju-se</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=MT&amp;city=cuiaba-mt</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=MS&amp;city=campo-grande-ms</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=ES&amp;city=vitoria-es</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SC&amp;city=joinville-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=PR&amp;city=londrina-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SP&amp;city=sorocaba-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=MG&amp;city=uberlandia-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=moda&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos</loc>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SP&amp;city=sao-paulo-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=MG&amp;city=belo-horizonte-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=DF&amp;city=brasilia-df</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=DF&amp;city=brasilia-df</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=BA&amp;city=salvador-ba</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=BA&amp;city=salvador-ba</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=CE&amp;city=fortaleza-ce</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=PR&amp;city=curitiba-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=PR&amp;city=curitiba-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=AM&amp;city=manaus-am</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=AM&amp;city=manaus-am</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=PE&amp;city=recife-pe</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=PE&amp;city=recife-pe</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=RS&amp;city=porto-alegre-rs</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SC&amp;city=florianopolis-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=GO&amp;city=goiania-go</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=GO&amp;city=goiania-go</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=PA&amp;city=belem-pa</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=PA&amp;city=belem-pa</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SP&amp;city=campinas-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SP&amp;city=campinas-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=MA&amp;city=sao-luis-ma</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=AL&amp;city=maceio-al</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=AL&amp;city=maceio-al</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=RN&amp;city=natal-rn</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=RN&amp;city=natal-rn</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=PI&amp;city=teresina-pi</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=PI&amp;city=teresina-pi</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=PB&amp;city=joao-pessoa-pb</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SE&amp;city=aracaju-se</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SE&amp;city=aracaju-se</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=MT&amp;city=cuiaba-mt</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=MS&amp;city=campo-grande-ms</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=ES&amp;city=vitoria-es</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=ES&amp;city=vitoria-es</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SC&amp;city=joinville-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SC&amp;city=joinville-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=PR&amp;city=londrina-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=PR&amp;city=londrina-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SP&amp;city=sorocaba-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=MG&amp;city=uberlandia-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=casa&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=empregos&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SP&amp;city=sao-paulo-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=MG&amp;city=belo-horizonte-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=DF&amp;city=brasilia-df</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=BA&amp;city=salvador-ba</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=CE&amp;city=fortaleza-ce</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=PR&amp;city=curitiba-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=AM&amp;city=manaus-am</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=PE&amp;city=recife-pe</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=RS&amp;city=porto-alegre-rs</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SC&amp;city=florianopolis-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=GO&amp;city=goiania-go</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=PA&amp;city=belem-pa</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SP&amp;city=campinas-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=MA&amp;city=sao-luis-ma</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=AL&amp;city=maceio-al</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=RN&amp;city=natal-rn</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=PI&amp;city=teresina-pi</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=PB&amp;city=joao-pessoa-pb</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SE&amp;city=aracaju-se</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=MT&amp;city=cuiaba-mt</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=MS&amp;city=campo-grande-ms</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=ES&amp;city=vitoria-es</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SC&amp;city=joinville-sc</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=PR&amp;city=londrina-pr</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SP&amp;city=sorocaba-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=MG&amp;city=uberlandia-mg</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=musica&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
-    <changefreq>hourly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos</loc>
     <changefreq>hourly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SP&amp;city=sao-paulo-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=MG&amp;city=belo-horizonte-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=DF&amp;city=brasilia-df</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=DF&amp;city=brasilia-df</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=BA&amp;city=salvador-ba</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=BA&amp;city=salvador-ba</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=CE&amp;city=fortaleza-ce</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=PR&amp;city=curitiba-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=PR&amp;city=curitiba-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=AM&amp;city=manaus-am</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=AM&amp;city=manaus-am</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=PE&amp;city=recife-pe</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=PE&amp;city=recife-pe</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=RS&amp;city=porto-alegre-rs</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SC&amp;city=florianopolis-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=GO&amp;city=goiania-go</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=GO&amp;city=goiania-go</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=PA&amp;city=belem-pa</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=PA&amp;city=belem-pa</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SP&amp;city=campinas-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SP&amp;city=campinas-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=MA&amp;city=sao-luis-ma</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=AL&amp;city=maceio-al</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=AL&amp;city=maceio-al</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=RN&amp;city=natal-rn</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=RN&amp;city=natal-rn</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=PI&amp;city=teresina-pi</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=PI&amp;city=teresina-pi</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=PB&amp;city=joao-pessoa-pb</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SE&amp;city=aracaju-se</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SE&amp;city=aracaju-se</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=MT&amp;city=cuiaba-mt</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=MS&amp;city=campo-grande-ms</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=ES&amp;city=vitoria-es</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=ES&amp;city=vitoria-es</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SC&amp;city=joinville-sc</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SC&amp;city=joinville-sc</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=PR&amp;city=londrina-pr</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=PR&amp;city=londrina-pr</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SP&amp;city=sorocaba-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=MG&amp;city=uberlandia-mg</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://brickcerto.com.br/#/listing?category=esportes&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <loc>https://brickcerto.com.br/listing?category=eletronicos&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=DF&amp;city=brasilia-df</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=BA&amp;city=salvador-ba</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=PR&amp;city=curitiba-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=AM&amp;city=manaus-am</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=PE&amp;city=recife-pe</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=GO&amp;city=goiania-go</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=PA&amp;city=belem-pa</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SP&amp;city=campinas-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=AL&amp;city=maceio-al</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=RN&amp;city=natal-rn</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=PI&amp;city=teresina-pi</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SE&amp;city=aracaju-se</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=ES&amp;city=vitoria-es</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SC&amp;city=joinville-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=PR&amp;city=londrina-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=moda&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=DF&amp;city=brasilia-df</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=BA&amp;city=salvador-ba</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=PR&amp;city=curitiba-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=AM&amp;city=manaus-am</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=PE&amp;city=recife-pe</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=GO&amp;city=goiania-go</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=PA&amp;city=belem-pa</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SP&amp;city=campinas-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=AL&amp;city=maceio-al</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=RN&amp;city=natal-rn</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=PI&amp;city=teresina-pi</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SE&amp;city=aracaju-se</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=ES&amp;city=vitoria-es</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SC&amp;city=joinville-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=PR&amp;city=londrina-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=casa&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=DF&amp;city=brasilia-df</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=BA&amp;city=salvador-ba</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=PR&amp;city=curitiba-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=AM&amp;city=manaus-am</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=PE&amp;city=recife-pe</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=GO&amp;city=goiania-go</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=PA&amp;city=belem-pa</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SP&amp;city=campinas-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=AL&amp;city=maceio-al</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=RN&amp;city=natal-rn</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=PI&amp;city=teresina-pi</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SE&amp;city=aracaju-se</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=ES&amp;city=vitoria-es</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SC&amp;city=joinville-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=PR&amp;city=londrina-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=musica&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SP&amp;city=sao-paulo-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=RJ&amp;city=rio-de-janeiro-rj</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=MG&amp;city=belo-horizonte-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=DF&amp;city=brasilia-df</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=BA&amp;city=salvador-ba</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=CE&amp;city=fortaleza-ce</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=PR&amp;city=curitiba-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=AM&amp;city=manaus-am</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=PE&amp;city=recife-pe</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=RS&amp;city=porto-alegre-rs</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SC&amp;city=florianopolis-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=GO&amp;city=goiania-go</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=PA&amp;city=belem-pa</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SP&amp;city=campinas-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=MA&amp;city=sao-luis-ma</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=AL&amp;city=maceio-al</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=RN&amp;city=natal-rn</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=PI&amp;city=teresina-pi</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=PB&amp;city=joao-pessoa-pb</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SE&amp;city=aracaju-se</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=MT&amp;city=cuiaba-mt</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=MS&amp;city=campo-grande-ms</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=ES&amp;city=vitoria-es</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SC&amp;city=joinville-sc</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=PR&amp;city=londrina-pr</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SP&amp;city=sorocaba-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SP&amp;city=ribeirao-preto-sp</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=MG&amp;city=uberlandia-mg</loc>
+    <changefreq>hourly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://brickcerto.com.br/listing?category=esportes&amp;state=SP&amp;city=sao-jose-dos-campos-sp</loc>
     <changefreq>hourly</changefreq>
     <priority>0.8</priority>
   </url>

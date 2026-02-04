@@ -6,7 +6,6 @@ import xmlbuilder from 'xmlbuilder';
 // I will redefine the data for the script to ensure robustness.
 
 const BASE_URL = 'https://brickcerto.com.br'; // Replace with actual domain
-const EXTERNAL_URL_PREFIX = '/#'; // Changing to history API? If yes, remove /#. keeping for now based on current app state.
 
 // Hardcoded constants since we cannot import .tsx in node easily without build step
 const CATEGORY_SLUGS = [
@@ -37,8 +36,7 @@ async function generateSitemap() {
     ];
 
     staticPages.forEach(page => {
-        const urlParams = page.url === '/' ? '' : page.url.replace('/', '');
-        const loc = page.url === '/' ? BASE_URL : `${BASE_URL}${EXTERNAL_URL_PREFIX}${page.url}`;
+        const loc = page.url === '/' ? BASE_URL : `${BASE_URL}${page.url}`;
 
         const item = root.ele('url');
         item.ele('loc', loc);
@@ -50,7 +48,7 @@ async function generateSitemap() {
     CATEGORY_SLUGS.forEach(cat => {
         // Main Category
         const catItem = root.ele('url');
-        catItem.ele('loc', `${BASE_URL}${EXTERNAL_URL_PREFIX}/listing?category=${cat}`);
+        catItem.ele('loc', `${BASE_URL}/listing?category=${cat}`);
         catItem.ele('changefreq', 'hourly');
         catItem.ele('priority', 0.9);
 
@@ -62,7 +60,7 @@ async function generateSitemap() {
             // My major cities list has "city-st". I need to parse state.
             const state = city.split('-').pop().toUpperCase();
 
-            cityItem.ele('loc', `${BASE_URL}${EXTERNAL_URL_PREFIX}/listing?category=${cat}&state=${state}&city=${city}`);
+            cityItem.ele('loc', `${BASE_URL}/listing?category=${cat}&state=${state}&city=${city}`);
             cityItem.ele('changefreq', 'hourly');
             cityItem.ele('priority', 0.8);
         });

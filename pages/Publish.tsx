@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
-import { CATEGORIES, STATES } from '../constants';
+import { CATEGORIES, CATEGORY_DB_MAPPING, STATE_DB_MAPPING, STATES } from '../constants';
 import { Icon } from '../components/Icon';
 
 interface PublishProps {
@@ -64,6 +64,19 @@ const Publish: React.FC<PublishProps> = ({ onNavigate }) => {
     }
   };
 
+  const slugify = (text: string) => {
+    return text
+      .toString()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
+  };
+
   const handlePublish = async () => {
     if (!session) {
       onNavigate('auth');
@@ -72,16 +85,30 @@ const Publish: React.FC<PublishProps> = ({ onNavigate }) => {
 
     setLoading(true);
     try {
-      // TODO: Insert into listings table when it's ready
+      const slug = `${slugify(formData.title)}-${Math.random().toString(36).substring(2, 6)}`;
+
+      const mappedCategorySlug = CATEGORY_DB_MAPPING[formData.category]?.[0] || formData.category;
+      const { data: categoryRow, error: categoryError } = await supabase
+        .from('categories' as any)
+        .select('id')
+        .eq('slug', mappedCategorySlug)
+        .single();
+
+      if (categoryError) throw categoryError;
+      if (!categoryRow?.id) throw new Error('Categoria inválida');
+
+      const stateValue = STATE_DB_MAPPING[formData.state] || formData.state;
+
       const { error } = await supabase
         .from('listings' as any)
         .insert({
-          user_id: session.user.id,
+          owner_id: session.user.id,
           title: formData.title,
+          slug: slug,
           description: formData.description,
           price: parseFloat(formData.price),
-          category: formData.category,
-          state: formData.state,
+          category_id: categoryRow?.id,
+          state: stateValue,
           city: formData.city,
           images: images,
           status: 'active'

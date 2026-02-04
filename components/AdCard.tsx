@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 
 interface AdCardProps {
   ad: Ad;
-  onClick: (id: string) => void;
+  onClick: (id: string, slug?: string) => void;
   sellerContext?: { // New prop for Seller Profile context
     name: string;
     whatsapp: string;
@@ -84,7 +84,7 @@ const AdCard: React.FC<AdCardProps> = ({ ad, onClick, sellerContext, variant = '
     return (
       <div
         className={`${adultContainerClass} rounded-xl transition-all duration-300 overflow-hidden cursor-pointer group flex flex-col h-full relative`}
-        onClick={() => onClick(ad.id)}
+        onClick={() => onClick(ad.id, ad.slug)}
       >
         <div className="relative aspect-[3/4] overflow-hidden bg-gray-900">
           <img
@@ -176,7 +176,7 @@ const AdCard: React.FC<AdCardProps> = ({ ad, onClick, sellerContext, variant = '
   return (
     <div
       className={`${containerStyles[tier]} rounded-xl transition-all duration-300 overflow-hidden cursor-pointer group border flex flex-col h-full`}
-      onClick={() => onClick(ad.id)}
+      onClick={() => onClick(ad.id, ad.slug)}
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-gray-100 group">
         <img
@@ -225,6 +225,8 @@ const AdCard: React.FC<AdCardProps> = ({ ad, onClick, sellerContext, variant = '
         >
           <Icon name="Heart" size={16} className={isFavorite ? "fill-brand-red" : ""} />
         </button>
+
+
       </div>
 
       <div className="p-3 flex flex-col flex-grow">
@@ -247,7 +249,7 @@ const AdCard: React.FC<AdCardProps> = ({ ad, onClick, sellerContext, variant = '
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

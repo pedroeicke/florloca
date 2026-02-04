@@ -1,17 +1,25 @@
 
 import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 
 import { Ad } from '../types';
 import { Icon } from '../components/Icon';
+import { buildLocationSlug, extractRatesFromAttributes, getMinRateValue, toNumber } from '../utils';
+import { ACOMPANHANTES_SERVICES } from '../constants';
 
 interface DetailProps {
   onNavigate: (page: string, params?: any) => void;
   id?: string;
+  slug?: string;
 }
 
-const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
+const Detail: React.FC<DetailProps> = ({ onNavigate, id, slug }) => {
   const [ad, setAd] = useState<Ad | null>(null);
+  const [userSince, setUserSince] = useState<string | null>(null);
+  const [views, setViews] = useState<number | null>(null);
+  const routerNavigate = useNavigate();
+  const { pathname } = useLocation();
 
   // Gallery State
   const [galleryStartIndex, setGalleryStartIndex] = useState(0); // For Adult Strip
@@ -24,17 +32,24 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
 
   useEffect(() => {
     const fetchAd = async () => {
-      if (!id) return;
+      // Allow fetching if either ID or Slug is present
+      if (!id && !slug) return;
 
       // Handle duplicate ID artifact if present (legacy support)
-      const realId = id.endsWith('-dup') ? id.replace(/-dup$/, '') : id;
+      const realId = id && id.endsWith('-dup') ? id.replace(/-dup$/, '') : id;
 
       try {
-        const { data: item, error } = await supabase
+        let query = supabase
           .from('listings')
-          .select('*, categories(slug, name)')
-          .eq('id', realId)
-          .single();
+          .select('*, slug, categories(slug, name)');
+
+        if (slug) {
+          query = query.eq('slug', slug);
+        } else if (realId) {
+          query = query.eq('id', realId);
+        }
+
+        const { data: item, error } = await query.single();
 
         if (error) {
           console.error('Error fetching ad detail:', error);
@@ -43,16 +58,25 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
         }
 
         if (item) {
+          const attrs = (item.attributes as any) || {};
+          const derivedRates = extractRatesFromAttributes(attrs);
+          const derivedAge = typeof item.age === 'number' ? item.age : (toNumber(attrs.age) ?? undefined);
+          const derivedPrice =
+            typeof item.price === 'number' && item.price > 0
+              ? item.price
+              : (getMinRateValue(derivedRates) ?? 0);
+
           const mappedAd: Ad = {
             id: item.id,
+            slug: item.slug || undefined,
             title: item.title,
-            price: item.price || 0,
+            price: derivedPrice,
             category: item.categories?.slug || 'geral',
             subcategory: item.subcategory || undefined,
-            location: item.location || '',
+            location: item.city || item.location || '',
             state: item.state || 'SC',
-            image: item.image_url || 'https://via.placeholder.com/300',
-            images: item.images || [],
+            image: Array.isArray(item.images) && item.images.length > 0 ? item.images[0] : 'https://via.placeholder.com/300',
+            images: Array.isArray(item.images) ? item.images : [],
             description: item.description || '',
             attributes: (item.attributes as Record<string, string | number>) || {},
             createdAt: item.created_at || new Date().toISOString(),
@@ -60,19 +84,31 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
             tier: (item.tier as 'free' | 'highlight' | 'premium') || 'free',
             verified: item.verified || false,
             online: false,
-            age: item.age || undefined,
-            services: (item.attributes as any)?.services || [],
-            rates: (item.attributes as any)?.rates || [],
-            ethnicity: (item.attributes as any)?.ethnicity,
-            gender: (item.attributes as any)?.gender,
+            age: derivedAge,
+            services: Array.isArray(attrs.services) ? attrs.services : [],
+            rates: derivedRates,
+            ethnicity: attrs.ethnicity,
+            gender: attrs.gender,
             // Add other fields mapped from DB or defaults
             storeId: undefined, // Add if in DB
           };
 
           setAd(mappedAd);
+          setViews(typeof item.analytics?.views === 'number' ? item.analytics.views : null);
           setGalleryStartIndex(0);
           setSelectedImageIndex(0);
           setViewersCount(Math.floor(Math.random() * 20) + 5);
+
+          if (item.owner_id) {
+            const { data: profile } = await supabase
+              .from('profiles')
+              .select('created_at')
+              .eq('id', item.owner_id)
+              .maybeSingle();
+            setUserSince(profile?.created_at || item.created_at || null);
+          } else {
+            setUserSince(item.created_at || null);
+          }
         }
       } catch (err) {
         console.error('Unexpected error fetching ad:', err);
@@ -80,7 +116,17 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
     };
 
     fetchAd();
-  }, [id]);
+  }, [id, slug]);
+
+  useEffect(() => {
+    if (!ad?.slug || !ad.location || !ad.category) return;
+    const locationSlug = buildLocationSlug(ad.location, ad.state);
+    if (!locationSlug) return;
+    const canonicalPath = `/${locationSlug}/${ad.category}/${ad.slug}`;
+    if (pathname !== canonicalPath) {
+      routerNavigate(canonicalPath, { replace: true });
+    }
+  }, [ad, pathname, routerNavigate]);
 
   if (!ad) return <div className="p-20 text-center text-gray-500">Carregando anúncio...</div>;
 
@@ -190,6 +236,24 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
 
   // --- ADULT PREMIUM LAYOUT (Dark Mode / Exclusive) ---
   if ((ad.category === 'adultos' || ad.category === 'acompanhantes') && ad.tier === 'premium') {
+    const attrs = (ad.attributes as any) || {};
+    const locations = Array.isArray(attrs.locations) ? attrs.locations : (typeof attrs.locations === 'string' ? [attrs.locations] : []);
+    const languages = Array.isArray(attrs.languages) ? attrs.languages : (typeof attrs.languages === 'string' ? [attrs.languages] : []);
+    const attends = attrs.attends;
+    const explicitNotOffered = Array.isArray(attrs.services_not_offered)
+      ? attrs.services_not_offered
+      : Array.isArray(attrs.not_services)
+        ? attrs.not_services
+        : Array.isArray(attrs.services_not)
+          ? attrs.services_not
+          : [];
+    const offeredServices = Array.isArray(ad.services) ? ad.services : [];
+    const normalizeService = (v: unknown) => String(v || '').trim().toLowerCase();
+    const offeredSet = new Set(offeredServices.map(normalizeService).filter(Boolean));
+    const computedNotOffered = ACOMPANHANTES_SERVICES.filter((s) => !offeredSet.has(normalizeService(s)));
+    const notOffered = explicitNotOffered.length > 0 ? explicitNotOffered : computedNotOffered;
+    const formattedSince = userSince ? new Date(userSince).toLocaleDateString('pt-BR') : null;
+
     return (
       <div className="bg-zinc-950 min-h-screen pb-24 font-sans text-gray-200">
         {renderLightbox()}
@@ -308,14 +372,18 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
                   </div>
                   <div className="w-px bg-zinc-800"></div>
                   <div className="text-center flex-1 min-w-[80px]">
-                    <p className="text-zinc-500 text-xs uppercase tracking-wider mb-1">Altura</p>
-                    <p className="text-xl md:text-2xl text-white font-serif">1.70m</p>
+                    <p className="text-zinc-500 text-xs uppercase tracking-wider mb-1">Atendo</p>
+                    <p className="text-xl md:text-2xl text-white font-serif">{attends || '--'}</p>
                   </div>
                   <div className="w-px bg-zinc-800"></div>
                   <div className="text-center flex-1 min-w-[80px]">
                     <p className="text-zinc-500 text-xs uppercase tracking-wider mb-1">Verificada</p>
                     <div className="flex justify-center mt-1">
-                      <Icon name="ShieldCheck" className="text-yellow-500" size={28} />
+                      {ad.verified ? (
+                        <Icon name="ShieldCheck" className="text-yellow-500" size={28} />
+                      ) : (
+                        <Icon name="X" className="text-zinc-600" size={28} />
+                      )}
                     </div>
                   </div>
                 </div>
@@ -342,6 +410,30 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
                     {ad.description}
                   </p>
                 </div>
+                <div className="mt-8 pt-5 border-t border-zinc-800 flex flex-wrap gap-x-10 gap-y-2 text-sm text-zinc-400">
+                  <div className="flex items-center gap-2">
+                    <span className="uppercase tracking-widest text-zinc-500 text-xs">Usuário desde</span>
+                    <span className="text-zinc-300">{formattedSince || '--'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="uppercase tracking-widest text-zinc-500 text-xs">Visitas</span>
+                    <span className="text-zinc-300">{typeof views === 'number' ? String(views) : '--'}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden p-6">
+                <h3 className="text-xl text-white font-serif mb-6">Informações</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div className="text-zinc-300"><span className="font-semibold">Estado:</span> {ad.state || '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Cidade:</span> {ad.location || '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Eu sou:</span> {ad.gender || '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Idade:</span> {ad.age ? `${ad.age} anos` : '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Etnia:</span> {ad.ethnicity || '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Atendo:</span> {attends || '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Locais:</span> {locations.length > 0 ? locations.join(', ') : '--'}</div>
+                  <div className="text-zinc-300"><span className="font-semibold">Idiomas:</span> {languages.length > 0 ? languages.join(', ') : '--'}</div>
+                </div>
               </div>
 
               {/* Services */}
@@ -350,22 +442,49 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
                   <span className="w-8 h-px bg-yellow-500 mr-4"></span>
                   Serviços & Preferências
                 </h2>
-                <div className="flex flex-wrap gap-3">
-                  {ad.services?.map((service, idx) => (
-                    <span key={idx} className="bg-zinc-900 border border-zinc-800 hover:border-yellow-500/50 text-zinc-300 px-4 py-2 rounded-full text-sm transition-colors cursor-default">
-                      {service}
-                    </span>
-                  ))}
-                  {['Jantares', 'Viagens', 'Eventos'].map((s, i) => (
-                    <span key={`extra-${i}`} className="bg-zinc-900 border border-zinc-800 hover:border-yellow-500/50 text-zinc-300 px-4 py-2 rounded-full text-sm transition-colors cursor-default">
-                      {s}
-                    </span>
-                  ))}
+                <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden p-6">
+                  <h3 className="text-xl text-white font-serif mb-6">Serviços que ofereço & não ofereço</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                      <h4 className="text-sm uppercase tracking-widest text-zinc-400 mb-4">Ofereço</h4>
+                      <div className="space-y-3">
+                        {(ad.services || []).length === 0 ? (
+                          <div className="text-zinc-500 text-sm">—</div>
+                        ) : (
+                          (ad.services || []).map((service: string, idx: number) => (
+                            <div key={idx} className="flex items-center gap-3 text-zinc-200">
+                              <Icon name="Check" size={18} className="text-green-500" />
+                              <span>{service}</span>
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm uppercase tracking-widest text-zinc-400 mb-4">Não ofereço</h4>
+                      <div className="space-y-3">
+                        {(notOffered || []).length === 0 ? (
+                          <div className="text-zinc-500 text-sm">—</div>
+                        ) : (
+                          (notOffered || []).map((service: string, idx: number) => (
+                            <div key={idx} className="flex items-center gap-3 text-zinc-200">
+                              <Icon name="X" size={18} className="text-brand-red" />
+                              <span>{service}</span>
+                            </div>
+                          ))
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-8 pt-4 border-t border-zinc-800 text-xs text-zinc-500">
+                    Valores e detalhes dos serviços podem ser combinados diretamente com o anunciante.
+                  </div>
                 </div>
               </div>
 
               {/* Rates Table */}
-              {ad.rates && (
+              {ad.rates && ad.rates.length > 0 && (
                 <div className="bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden p-6">
                   <h3 className="text-xl text-white font-serif mb-6 text-center">Investimento</h3>
                   <div className="space-y-4">
@@ -544,11 +663,11 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
                       <div>
                         <p className="font-bold text-gray-900 text-sm">Loja Oficial Premium</p>
                         <div className="flex text-yellow-400 text-xs">
-                          <Icon name="Star" size={12} fill="currentColor" />
-                          <Icon name="Star" size={12} fill="currentColor" />
-                          <Icon name="Star" size={12} fill="currentColor" />
-                          <Icon name="Star" size={12} fill="currentColor" />
-                          <Icon name="Star" size={12} fill="currentColor" />
+                          <Icon name="Star" size={12} className="text-yellow-400" />
+                          <Icon name="Star" size={12} className="text-yellow-400" />
+                          <Icon name="Star" size={12} className="text-yellow-400" />
+                          <Icon name="Star" size={12} className="text-yellow-400" />
+                          <Icon name="Star" size={12} className="text-yellow-400" />
                           <span className="text-gray-400 ml-1">(142 vendas)</span>
                         </div>
                       </div>
@@ -646,6 +765,24 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
 
   // --- RENDER FOR ADULT CATEGORY (Standard/Highlight) ---
   if (ad.category === 'adultos' || ad.category === 'acompanhantes') {
+    const attrs = (ad.attributes as any) || {};
+    const locations = Array.isArray(attrs.locations) ? attrs.locations : (typeof attrs.locations === 'string' ? [attrs.locations] : []);
+    const languages = Array.isArray(attrs.languages) ? attrs.languages : (typeof attrs.languages === 'string' ? [attrs.languages] : []);
+    const attends = attrs.attends;
+    const explicitNotOffered = Array.isArray(attrs.services_not_offered)
+      ? attrs.services_not_offered
+      : Array.isArray(attrs.not_services)
+        ? attrs.not_services
+        : Array.isArray(attrs.services_not)
+          ? attrs.services_not
+          : [];
+    const offeredServices = Array.isArray(ad.services) ? ad.services : [];
+    const normalizeService = (v: unknown) => String(v || '').trim().toLowerCase();
+    const offeredSet = new Set(offeredServices.map(normalizeService).filter(Boolean));
+    const computedNotOffered = ACOMPANHANTES_SERVICES.filter((s) => !offeredSet.has(normalizeService(s)));
+    const notOffered = explicitNotOffered.length > 0 ? explicitNotOffered : computedNotOffered;
+    const formattedSince = userSince ? new Date(userSince).toLocaleDateString('pt-BR') : null;
+
     return (
       <div className="bg-gray-100 min-h-screen pb-24 md:pb-12 font-sans">
 
@@ -698,7 +835,7 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
                       <div className="absolute top-4 left-4 flex flex-col gap-2">
                         {ad.verified && (
                           <span className="bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded uppercase flex items-center shadow-lg">
-                            <Icon name="Star" size={12} className="mr-1 fill-white" /> Verificada
+                            <Icon name="Star" size={12} className="mr-1" /> Verificada
                           </span>
                         )}
                       </div>
@@ -774,11 +911,72 @@ const Detail: React.FC<DetailProps> = ({ onNavigate, id }) => {
                 <div className="prose prose-gray max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
                   {ad.description}
                 </div>
+                <div className="mt-6 pt-4 border-t border-gray-100 flex flex-wrap gap-x-10 gap-y-2 text-sm text-gray-500">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-600">Usuário desde</span>
+                    <span>{formattedSince || '--'}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-gray-600">Visitas</span>
+                    <span>{typeof views === 'number' ? String(views) : '--'}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Informações</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                  <div className="text-gray-700"><span className="font-semibold">Estado:</span> {ad.state || '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Cidade:</span> {ad.location || '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Eu sou:</span> {ad.gender || '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Idade:</span> {ad.age ? `${ad.age} anos` : '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Etnia:</span> {ad.ethnicity || '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Atendo:</span> {attends || '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Locais:</span> {locations.length > 0 ? locations.join(', ') : '--'}</div>
+                  <div className="text-gray-700"><span className="font-semibold">Idiomas:</span> {languages.length > 0 ? languages.join(', ') : '--'}</div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Serviços que ofereço & não ofereço</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Ofereço</div>
+                    <div className="space-y-3">
+                      {(ad.services || []).length === 0 ? (
+                        <div className="text-gray-400">—</div>
+                      ) : (
+                        (ad.services || []).map((service: string, idx: number) => (
+                          <div key={idx} className="flex items-center gap-3 text-gray-800">
+                            <Icon name="Check" size={18} className="text-green-600" />
+                            <span>{service}</span>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Não ofereço</div>
+                    <div className="space-y-3">
+                      {(notOffered || []).length === 0 ? (
+                        <div className="text-gray-400">—</div>
+                      ) : (
+                        (notOffered || []).map((service: string, idx: number) => (
+                          <div key={idx} className="flex items-center gap-3 text-gray-800">
+                            <Icon name="X" size={18} className="text-brand-red" />
+                            <span>{service}</span>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-8 pt-4 border-t border-gray-100 text-xs text-gray-500">
+                  Valores e detalhes dos serviços podem ser combinados diretamente com o anunciante.
+                </div>
               </div>
               {/* Rates */}
-              {ad.rates && (
+              {ad.rates && ad.rates.length > 0 && (
                 <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-100">
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">Valores</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Cachê</h3>
                   <div className="space-y-3">
                     {ad.rates.map((rate, idx) => (
                       <div key={idx} className="flex justify-between items-center border-b border-gray-100 pb-2 last:border-0 last:pb-0">

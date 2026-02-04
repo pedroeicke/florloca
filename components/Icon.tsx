@@ -1,8 +1,8 @@
 import React from 'react';
-import { Home, Car, Briefcase, Wrench, GraduationCap, Dog, ShoppingBag, Heart, Search, MapPin, User, Menu, X, Camera, ChevronRight, ChevronLeft, ChevronDown, Phone, Mail, Share2, AlertTriangle, ShieldCheck, Clock, MessageCircle, MoreVertical, Filter, Star, CheckCircle, Bell, ClipboardList, Armchair, Smartphone, Music, Dumbbell, Shirt, Baby, Gamepad2, Tractor, Users, Gem, Monitor } from 'lucide-react';
+import { Home, Car, Briefcase, Wrench, GraduationCap, Dog, ShoppingBag, Heart, Search, MapPin, User, Menu, X, Camera, ChevronRight, ChevronLeft, ChevronDown, Phone, Mail, Share2, AlertTriangle, ShieldCheck, Clock, MessageCircle, MoreVertical, Filter, Star, CheckCircle, Check, Bell, ClipboardList, Armchair, Smartphone, Music, Dumbbell, Shirt, Baby, Gamepad2, Tractor, Users, Gem, Monitor } from 'lucide-react';
 
 export const IconMap: Record<string, React.ElementType> = {
-  Home, Car, Briefcase, Wrench, GraduationCap, Dog, ShoppingBag, Heart, Search, MapPin, User, Menu, X, Camera, ChevronRight, ChevronLeft, ChevronDown, Phone, Mail, Share2, AlertTriangle, ShieldCheck, Clock, MessageCircle, MoreVertical, Filter, Star, CheckCircle, Bell, ClipboardList, Armchair, Smartphone, Music, Dumbbell, Shirt, Baby, Gamepad2, Tractor, Users, Gem, Monitor
+  Home, Car, Briefcase, Wrench, GraduationCap, Dog, ShoppingBag, Heart, Search, MapPin, User, Menu, X, Camera, ChevronRight, ChevronLeft, ChevronDown, Phone, Mail, Share2, AlertTriangle, ShieldCheck, Clock, MessageCircle, MoreVertical, Filter, Star, CheckCircle, Check, Bell, ClipboardList, Armchair, Smartphone, Music, Dumbbell, Shirt, Baby, Gamepad2, Tractor, Users, Gem, Monitor
 };
 
 interface IconProps {

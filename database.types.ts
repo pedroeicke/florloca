@@ -128,6 +128,7 @@ export type Database = {
                     location: string | null
                     owner_id: string | null
                     price: number | null
+                    slug: string | null
                     state: string | null
                     subcategory: string | null
                     tier: string | null
@@ -148,6 +149,7 @@ export type Database = {
                     location?: string | null
                     owner_id?: string | null
                     price?: number | null
+                    slug?: string | null
                     state?: string | null
                     subcategory?: string | null
                     tier?: string | null
@@ -168,6 +170,7 @@ export type Database = {
                     location?: string | null
                     owner_id?: string | null
                     price?: number | null
+                    slug?: string | null
                     state?: string | null
                     subcategory?: string | null
                     tier?: string | null

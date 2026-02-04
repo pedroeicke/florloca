@@ -115,6 +115,18 @@ export const CATEGORIES: Category[] = [
 
 export const STATES = ['SC', 'SP', 'RJ', 'MG', 'RS', 'PR', 'BA', 'PE', 'DF'];
 
+export const STATE_DB_MAPPING: Record<string, string> = {
+  SC: 'Santa Catarina',
+  SP: 'São Paulo',
+  RJ: 'Rio de Janeiro',
+  MG: 'Minas Gerais',
+  RS: 'Rio Grande do Sul',
+  PR: 'Paraná',
+  BA: 'Bahia',
+  PE: 'Pernambuco',
+  DF: 'Distrito Federal'
+};
+
 // Mapping from UI Category IDs (constants) to Database Category Slugs
 export const CATEGORY_DB_MAPPING: Record<string, string[]> = {
   'autos': ['carros-usados', 'motos-scooters', 'caminhoes-comerciais', 'onibus-venda', 'barcos-lanchas', 'pecas-acessorios', 'caravanas-trailers'],
@@ -154,3 +166,21 @@ export const SUBCATEGORY_DB_MAPPING: Record<string, string> = {
   'Outras Vagas': 'vagas-emprego'
 };
 
+export const ACOMPANHANTES_SERVICES: string[] = [
+  'Acompanhante',
+  'Beijo na boca',
+  'Festas e Eventos',
+  'Inversão de papéis',
+  'Massagem',
+  'Massagem Tântrica',
+  'Outras opções',
+  'Striptease',
+  'Ativa',
+  'Dominação',
+  'Fetiche',
+  'Namoradinha',
+  'Passiva',
+  'Homens',
+  'Mulheres',
+  'Casais'
+];

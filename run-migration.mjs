@@ -1,15 +1,15 @@
 import { createClient } from '@supabase/supabase-js';
 import { readFileSync } from 'fs';
 
-const supabaseUrl = 'https://djpjaktzstbcwcrzfcun.supabase.co';
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqcGpha3R6c3RiY3djcnpmY3VuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzcyMzU2NzcsImV4cCI6MjA1MjgxMTY3N30.eBiKKPEDLYjnJZGvfPqGQQDQQXzZjmPIjGCJZZLsWxE';
+const supabaseUrl = 'https://plubjqspxikmpviazjcm.supabase.co';
+const supabaseKey = process.env.SUPABASE_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function runMigration() {
     try {
         console.log('📦 Lendo migration...');
-        const sql = readFileSync('migrations/create_listings_table.sql', 'utf-8');
+        const sql = readFileSync('migrations/add_slug_column.sql', 'utf-8');
 
         console.log('🚀 Executando migration...');
 

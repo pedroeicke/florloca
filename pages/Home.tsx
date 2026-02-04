@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
+import { buildLocationSlug, slugify } from '../utils';
 
 import { supabase } from '../supabaseClient';
 import { Ad } from '../types';
@@ -25,7 +26,7 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
       try {
         const { data, error } = await supabase
           .from('listings')
-          .select('*, categories!inner(slug, name)')
+          .select('*, slug, categories!inner(slug, name)')
           .neq('categories.slug', 'acompanhantes')
           .order('created_at', { ascending: false })
           .limit(10);
@@ -38,14 +39,15 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
         if (data) {
           const mappedAds: Ad[] = data.map((item: any) => ({
             id: item.id,
+            slug: item.slug || undefined,
             title: item.title,
             price: item.price || 0,
             category: item.categories?.slug || 'geral',
             subcategory: item.subcategory || undefined,
-            location: item.location || '',
-            state: item.state || 'SC',
-            image: item.image_url || 'https://via.placeholder.com/300',
-            images: item.images || [],
+            location: item.city || item.location || '',
+            state: item.state || '',
+            image: Array.isArray(item.images) && item.images.length > 0 ? item.images[0] : 'https://via.placeholder.com/300',
+            images: Array.isArray(item.images) ? item.images : [],
             description: item.description || '',
             attributes: (item.attributes as Record<string, string | number>) || {},
             createdAt: item.created_at || new Date().toISOString(),
@@ -145,11 +147,39 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
             {recentAds.map((ad: Ad) => (
-              <AdCard key={ad.id} ad={ad} onClick={(id) => onNavigate('detail', { id })} variant="standard" />
+              <AdCard
+                key={ad.id}
+                ad={ad}
+                onClick={(id, slug) => {
+                  if (slug) {
+                    const locationSlug = buildLocationSlug(ad.location, ad.state);
+                    const categorySlug = slugify(ad.category || 'geral');
+                    if (locationSlug) onNavigate(`${locationSlug}/${categorySlug}/${slug}`);
+                    else onNavigate('anuncio/' + slug);
+                    return;
+                  }
+                  onNavigate('detail', { id });
+                }}
+                variant="standard"
+              />
             ))}
             {/* Duplicate for visual fullness - filtered */}
             {recentAds.map((ad: Ad) => (
-              <AdCard key={`${ad.id}-dup`} ad={{ ...ad, id: `${ad.id}-dup` }} onClick={(id) => onNavigate('detail', { id })} variant="standard" />
+              <AdCard
+                key={`${ad.id}-dup`}
+                ad={{ ...ad, id: `${ad.id}-dup` }}
+                onClick={(id, slug) => {
+                  if (slug) {
+                    const locationSlug = buildLocationSlug(ad.location, ad.state);
+                    const categorySlug = slugify(ad.category || 'geral');
+                    if (locationSlug) onNavigate(`${locationSlug}/${categorySlug}/${slug}`);
+                    else onNavigate('anuncio/' + slug);
+                    return;
+                  }
+                  onNavigate('detail', { id });
+                }}
+                variant="standard"
+              />
             ))}
           </div>
 

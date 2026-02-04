@@ -2,6 +2,7 @@
 
 export interface Ad {
   id: string;
+  slug?: string;
   title: string;
   price: number;
   category: string;
