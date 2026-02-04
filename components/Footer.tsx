@@ -7,11 +7,8 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="flex items-center mb-4 text-white">
-              <div className="bg-brand-red p-1.5 rounded mr-2">
-                <Icon name="ShoppingBag" className="text-white" size={20} />
-              </div>
-              <span className="text-xl font-bold">ClassiWeb</span>
+            <div className="flex items-center mb-4">
+              <img src="/logobrick.svg" alt="Logo" className="h-8 brightness-0 invert" />
             </div>
             <p className="text-sm text-gray-400 mb-4">
               O maior portal de classificados do Brasil. Encontre imóveis, veículos, empregos e muito mais com segurança e rapidez.
@@ -24,7 +21,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">ClassiWeb</h3>
+            <h3 className="text-white font-semibold mb-4">Institucional</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="#" className="hover:text-white transition-colors">Quem somos</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Trabalhe conosco</a></li>
@@ -52,14 +49,14 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-          <p>&copy; 2023 ClassiWeb. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()}. Todos os direitos reservados.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-             <span>Brasil</span>
-             <span>Portugal</span>
-             <span>Itália</span>
-             <span>França</span>
+            <span>Brasil</span>
+            <span>Portugal</span>
+            <span>Itália</span>
+            <span>França</span>
           </div>
         </div>
       </div>

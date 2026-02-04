@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { MOCK_ADS, CATEGORIES, STATES, RESTRICTED_CATEGORIES } from '../constants';
+import { supabase } from '../supabaseClient';
+import { Ad } from '../types';
+import { CATEGORIES, CATEGORY_DB_MAPPING, SUBCATEGORY_DB_MAPPING, STATES } from '../constants';
 import AdCard from '../components/AdCard';
 import { Icon } from '../components/Icon';
 
@@ -42,40 +44,166 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
     }
   }, [params]);
 
-  const filteredAds = MOCK_ADS.filter(ad => {
-    // CATEGORY FILTERING
-    if (filters.category) {
-      // If a specific category is selected, only show ads from that category
-      if (ad.category !== filters.category) return false;
-    } else {
-      // If NO category is selected (viewing "All"), EXCLUDE restricted categories
-      if (RESTRICTED_CATEGORIES.includes(ad.category)) return false;
-    }
+  const [listingAds, setListingAds] = useState<Ad[]>([]);
+  const [loading, setLoading] = useState(false);
 
-    // SUBCATEGORY FILTERING
-    // If filters.subcategory is '' (Ver todos), this check is skipped.
-    // We also explicitly check against 'undefined' string just in case.
-    if (filters.subcategory && filters.subcategory !== '' && filters.subcategory !== 'undefined' && ad.subcategory !== filters.subcategory) return false;
+  useEffect(() => {
+    const fetchAds = async () => {
+      setLoading(true);
+      try {
+        let query = supabase
+          .from('listings')
+          .select('*, categories!inner(slug, name)');
 
-    if (filters.state && ad.state !== filters.state) return false;
-    
-    // Note: In a real app, you would filter by attributes here
-    return true;
-  });
+        // Apply filters
+        if (filters.category) {
+          const mappedSlugs = CATEGORY_DB_MAPPING[filters.category];
+          if (mappedSlugs) {
+            query = query.in('categories.slug', mappedSlugs);
+          } else {
+            query = query.eq('categories.slug', filters.category);
+          }
+        }
+
+        if (filters.subcategory && filters.subcategory !== '' && filters.subcategory !== 'undefined') {
+          const mappedSubSlug = SUBCATEGORY_DB_MAPPING[filters.subcategory];
+          if (mappedSubSlug) {
+            // If subcategory maps to a category slug, filter by that slug
+            // This overrides the broader category filter above effectively, which is fine (it's a subset)
+            query = query.eq('categories.slug', mappedSubSlug);
+          } else {
+            // Fallback to filtering by text if no mapping (legacy behavior or unmapped)
+            query = query.eq('subcategory', filters.subcategory);
+          }
+        }
+
+        if (filters.state) {
+          query = query.eq('state', filters.state);
+        }
+
+        if (filters.minPrice) {
+          query = query.gte('price', Number(filters.minPrice));
+        }
+        if (filters.maxPrice) {
+          query = query.lte('price', Number(filters.maxPrice));
+        }
+
+        // Dynamic JSONB filters
+        if (filters.minYear) {
+          // Note: casting depends on how data is stored. Assuming number.
+          // JSONB operators in Supabase JS can be tricky. Using simple approach for now.
+          // For simple key-value in jsonb:
+          // query = query.filter('attributes->>year', 'gte', filters.minYear)
+          // But let's verify if we need to fetch all and filter in memory for complex json logic 
+          // if DB structure is simple.
+          // Let's rely on basic filters for now and maybe filter complex attributes in memory if needed
+          // or use proper Postgrest syntax if confident.
+        }
+
+        const { data, error } = await query;
+
+        if (error) {
+          console.error('Error fetching filtered ads:', error);
+          return;
+        }
+
+        if (data) {
+          const mappedAds: Ad[] = data.map((item: any) => ({
+            id: item.id,
+            title: item.title,
+            price: item.price || 0,
+            category: item.categories?.slug || 'geral',
+            subcategory: item.subcategory || undefined,
+            location: item.location || '',
+            state: item.state || 'SC',
+            image: item.image_url || 'https://via.placeholder.com/300',
+            images: item.images || [],
+            description: item.description || '',
+            attributes: (item.attributes as Record<string, string | number>) || {},
+            createdAt: item.created_at || new Date().toISOString(),
+            isVip: item.is_vip || false,
+            tier: (item.tier as 'free' | 'highlight' | 'premium') || 'free',
+            verified: item.verified || false,
+            online: false,
+            age: item.age || undefined
+          }));
+
+          // Client-side filtering for complex JSONB attributes if not done in DB
+          let result = mappedAds;
+          if (filters.minYear) result = result.filter(ad => Number(ad.attributes?.year || 0) >= Number(filters.minYear));
+          if (filters.maxYear) result = result.filter(ad => Number(ad.attributes?.year || 0) <= Number(filters.maxYear));
+          if (filters.bedrooms) result = result.filter(ad => Number(ad.attributes?.bedrooms || 0) >= Number(filters.bedrooms));
+
+          setListingAds(result);
+        }
+      } catch (err) {
+        console.error('Unexpected error:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAds();
+  }, [filters]); // Re-run when filters change
+
+  // Fetch category counts dynamically
+  const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('listings')
+          .select('category_id, categories!inner(slug)');
+
+        if (error) {
+          console.error('Error fetching category counts:', error);
+          return;
+        }
+
+        if (data) {
+          const rawCounts: Record<string, number> = {};
+          data.forEach((item: any) => {
+            const slug = item.categories?.slug;
+            if (slug) {
+              rawCounts[slug] = (rawCounts[slug] || 0) + 1;
+            }
+          });
+
+          // Aggregate counts for UI categories
+          const aggregatedCounts: Record<string, number> = {};
+          CATEGORIES.forEach(cat => {
+            const slugs = CATEGORY_DB_MAPPING[cat.id] || [cat.id];
+            let sum = 0;
+            slugs.forEach(s => sum += rawCounts[s] || 0);
+            aggregatedCounts[cat.id] = sum;
+          });
+
+          setCategoryCounts(aggregatedCounts);
+        }
+      } catch (err) {
+        console.error('Unexpected error fetching counts:', err);
+      }
+    };
+
+    fetchCounts();
+  }, []);
+
+  const filteredAds = listingAds; // Alias for compatibility with render
 
   const handleCategoryChange = (catId: string) => {
     const isSameCategory = filters.category === catId;
-    
+
     // Explicitly set subcategory to empty string to trigger "View All"
     const newParams = {
-        ...params,
-        category: catId,
-        subcategory: '' // Force empty string
+      ...params,
+      category: catId,
+      subcategory: '' // Force empty string
     };
 
     if (catId === '') {
-        // Clearing category
-        delete newParams.category;
+      // Clearing category
+      delete newParams.category;
     }
 
     setFilters({ ...filters, category: catId, subcategory: '' });
@@ -94,109 +222,109 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
         return (
           <div className="border-t border-gray-100 pt-6 mt-6 animate-fadeIn">
             <h3 className="font-bold text-gray-900 mb-4 flex items-center">
-              <Icon name="Home" size={16} className="mr-2 text-gray-400"/> 
+              <Icon name="Home" size={16} className="mr-2 text-gray-400" />
               Detalhes do Imóvel
             </h3>
-            
+
             {/* Quartos */}
             <div className="mb-4">
               <label className="block text-sm font-semibold text-gray-700 mb-2">Quartos</label>
               <div className="flex gap-2">
                 {[1, 2, 3, 4].map(num => (
-                  <button 
-                    key={num} 
+                  <button
+                    key={num}
                     className={`w-10 h-10 border rounded text-sm transition-colors font-medium ${filters.bedrooms === String(num) ? 'border-brand-red bg-red-50 text-brand-red' : 'border-gray-200 hover:border-brand-red text-gray-600'}`}
-                    onClick={() => setFilters({...filters, bedrooms: String(num)})}
+                    onClick={() => setFilters({ ...filters, bedrooms: String(num) })}
                   >
                     {num}+
                   </button>
                 ))}
               </div>
             </div>
-            
-            {/* Area */}
-             <div className="mb-4">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Área (m²)</label>
-                <div className="flex gap-2">
-                  <input type="number" placeholder="Min" className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" />
-                  <input type="number" placeholder="Max" className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" />
-                </div>
-              </div>
 
-             <div className="mb-2">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Vagas de Garagem</label>
-                <select className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none">
-                  <option>Qualquer</option>
-                  <option>1 ou mais</option>
-                  <option>2 ou mais</option>
-                </select>
-             </div>
+            {/* Area */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Área (m²)</label>
+              <div className="flex gap-2">
+                <input type="number" placeholder="Min" className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" />
+                <input type="number" placeholder="Max" className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" />
+              </div>
+            </div>
+
+            <div className="mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Vagas de Garagem</label>
+              <select className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none">
+                <option>Qualquer</option>
+                <option>1 ou mais</option>
+                <option>2 ou mais</option>
+              </select>
+            </div>
           </div>
         );
 
       case 'autos':
         return (
           <div className="border-t border-gray-100 pt-6 mt-6 animate-fadeIn">
-             <h3 className="font-bold text-gray-900 mb-4 flex items-center">
-               <Icon name="Car" size={16} className="mr-2 text-gray-400"/>
-               Detalhes do Veículo
-             </h3>
-             
-             {/* Year */}
-             <div className="mb-4">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Ano</label>
-                <div className="flex gap-2">
-                  <input 
-                    type="number" 
-                    placeholder="De" 
-                    className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" 
-                    value={filters.minYear}
-                    onChange={e => setFilters({...filters, minYear: e.target.value})}
-                  />
-                  <input 
-                    type="number" 
-                    placeholder="Até" 
-                    className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none"
-                    value={filters.maxYear}
-                    onChange={e => setFilters({...filters, maxYear: e.target.value})}
-                  />
-                </div>
-              </div>
+            <h3 className="font-bold text-gray-900 mb-4 flex items-center">
+              <Icon name="Car" size={16} className="mr-2 text-gray-400" />
+              Detalhes do Veículo
+            </h3>
 
-              {/* Gearbox */}
-              <div className="mb-4">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Câmbio</label>
-                <div className="space-y-2">
-                  <label className="flex items-center text-sm text-gray-600">
-                     <input type="checkbox" className="rounded text-brand-red focus:ring-brand-red mr-2" /> Automático
-                  </label>
-                  <label className="flex items-center text-sm text-gray-600">
-                     <input type="checkbox" className="rounded text-brand-red focus:ring-brand-red mr-2" /> Manual
-                  </label>
-                </div>
+            {/* Year */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Ano</label>
+              <div className="flex gap-2">
+                <input
+                  type="number"
+                  placeholder="De"
+                  className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none"
+                  value={filters.minYear}
+                  onChange={e => setFilters({ ...filters, minYear: e.target.value })}
+                />
+                <input
+                  type="number"
+                  placeholder="Até"
+                  className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none"
+                  value={filters.maxYear}
+                  onChange={e => setFilters({ ...filters, maxYear: e.target.value })}
+                />
               </div>
+            </div>
 
-              {/* Fuel */}
-              <div className="mb-4">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Combustível</label>
-                <select className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none">
-                  <option>Todos</option>
-                  <option>Flex</option>
-                  <option>Gasolina</option>
-                  <option>Diesel</option>
-                  <option>Elétrico</option>
-                </select>
+            {/* Gearbox */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Câmbio</label>
+              <div className="space-y-2">
+                <label className="flex items-center text-sm text-gray-600">
+                  <input type="checkbox" className="rounded text-brand-red focus:ring-brand-red mr-2" /> Automático
+                </label>
+                <label className="flex items-center text-sm text-gray-600">
+                  <input type="checkbox" className="rounded text-brand-red focus:ring-brand-red mr-2" /> Manual
+                </label>
               </div>
+            </div>
 
-               <div className="mb-2">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Quilometragem</label>
-                <select className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none">
-                  <option>Qualquer</option>
-                  <option>Até 30.000 km</option>
-                  <option>Até 60.000 km</option>
-                  <option>Até 100.000 km</option>
-                </select>
-             </div>
+            {/* Fuel */}
+            <div className="mb-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Combustível</label>
+              <select className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none">
+                <option>Todos</option>
+                <option>Flex</option>
+                <option>Gasolina</option>
+                <option>Diesel</option>
+                <option>Elétrico</option>
+              </select>
+            </div>
+
+            <div className="mb-2">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Quilometragem</label>
+              <select className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none">
+                <option>Qualquer</option>
+                <option>Até 30.000 km</option>
+                <option>Até 60.000 km</option>
+                <option>Até 100.000 km</option>
+              </select>
+            </div>
           </div>
         );
 
@@ -205,51 +333,51 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
       case 'moda':
       case 'musica':
       case 'esportes':
-         return (
-           <div className="border-t border-gray-100 pt-6 mt-6 animate-fadeIn">
-             <h3 className="font-bold text-gray-900 mb-4">Condição</h3>
-             <div className="space-y-2">
-               <label className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
-                 <input 
-                   type="radio" 
-                   name="condition" 
-                   className="mr-2 text-brand-red focus:ring-brand-red"
-                   checked={filters.condition === 'new'}
-                   onChange={() => setFilters({...filters, condition: 'new'})}
-                 /> 
-                 Novo
-               </label>
-               <label className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
-                 <input 
-                   type="radio" 
-                   name="condition"
-                   className="mr-2 text-brand-red focus:ring-brand-red"
-                   checked={filters.condition === 'used'}
-                   onChange={() => setFilters({...filters, condition: 'used'})}
-                 /> 
-                 Usado
-               </label>
-             </div>
-           </div>
-         );
-      
-      case 'empregos':
-          return (
-            <div className="border-t border-gray-100 pt-6 mt-6 animate-fadeIn">
-             <h3 className="font-bold text-gray-900 mb-4">Tipo de Contrato</h3>
-             <div className="space-y-2">
-                {['CLT (Efetivo)', 'PJ', 'Temporário', 'Estágio', 'Freelance'].map(type => (
-                   <label key={type} className="flex items-center text-sm text-gray-600">
-                     <input type="checkbox" className="rounded text-brand-red focus:ring-brand-red mr-2" /> {type}
-                   </label>
-                ))}
-             </div>
-             <div className="mt-4">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Salário Mínimo</label>
-                <input type="number" placeholder="R$ 0,00" className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" />
-             </div>
+        return (
+          <div className="border-t border-gray-100 pt-6 mt-6 animate-fadeIn">
+            <h3 className="font-bold text-gray-900 mb-4">Condição</h3>
+            <div className="space-y-2">
+              <label className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
+                <input
+                  type="radio"
+                  name="condition"
+                  className="mr-2 text-brand-red focus:ring-brand-red"
+                  checked={filters.condition === 'new'}
+                  onChange={() => setFilters({ ...filters, condition: 'new' })}
+                />
+                Novo
+              </label>
+              <label className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-gray-900">
+                <input
+                  type="radio"
+                  name="condition"
+                  className="mr-2 text-brand-red focus:ring-brand-red"
+                  checked={filters.condition === 'used'}
+                  onChange={() => setFilters({ ...filters, condition: 'used' })}
+                />
+                Usado
+              </label>
             </div>
-          );
+          </div>
+        );
+
+      case 'empregos':
+        return (
+          <div className="border-t border-gray-100 pt-6 mt-6 animate-fadeIn">
+            <h3 className="font-bold text-gray-900 mb-4">Tipo de Contrato</h3>
+            <div className="space-y-2">
+              {['CLT (Efetivo)', 'PJ', 'Temporário', 'Estágio', 'Freelance'].map(type => (
+                <label key={type} className="flex items-center text-sm text-gray-600">
+                  <input type="checkbox" className="rounded text-brand-red focus:ring-brand-red mr-2" /> {type}
+                </label>
+              ))}
+            </div>
+            <div className="mt-4">
+              <label className="block text-sm font-semibold text-gray-700 mb-2">Salário Mínimo</label>
+              <input type="number" placeholder="R$ 0,00" className="w-full p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none" />
+            </div>
+          </div>
+        );
 
       default:
         return null;
@@ -261,7 +389,7 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
   return (
     <div className="bg-gray-50 min-h-screen pt-8 pb-16">
       <div className="container mx-auto px-4">
-        
+
         {/* Breadcrumb & Header */}
         <div className="mb-8">
           <div className="flex items-center text-sm text-gray-500 mb-2">
@@ -276,7 +404,7 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
             )}
           </div>
           <h1 className="text-3xl font-bold text-gray-900">
-            {filters.category 
+            {filters.category
               ? (filters.subcategory && filters.subcategory !== 'undefined' ? `${filters.subcategory}` : selectedCategoryData?.name)
               : 'Todos os Anúncios'}
             <span className="text-lg font-normal text-gray-500 ml-3">{filteredAds.length} resultados</span>
@@ -284,95 +412,20 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-8">
-          
+
           {/* Sidebar Filters */}
           <aside className="w-full lg:w-1/4">
             <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 sticky top-24">
-              
-              {/* Category Navigation (Accordion Style) */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="font-bold text-gray-900">Categorias</h2>
-                  {filters.category && (
-                    <button 
-                      onClick={() => handleCategoryChange('')}
-                      className="text-xs text-brand-red font-medium hover:underline"
-                    >
-                      Limpar filtro
-                    </button>
-                  )}
-                </div>
-                
-                <div className="space-y-1 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
-                  {CATEGORIES.filter(cat => {
-                    // Hide restricted categories from sidebar unless actively viewing that category
-                    if (RESTRICTED_CATEGORIES.includes(cat.id)) {
-                      return filters.category === cat.id;
-                    }
-                    return true;
-                  }).map(cat => {
-                    const isSelected = filters.category === cat.id;
-                    
-                    return (
-                      <div key={cat.id} className="w-full">
-                        {/* Main Category Button */}
-                        <button 
-                          onClick={() => handleCategoryChange(cat.id)}
-                          className={`w-full text-left flex items-center justify-between text-sm p-2 rounded transition-colors ${isSelected ? 'text-brand-red font-bold bg-red-50' : 'text-gray-600 hover:text-brand-red hover:bg-gray-50'}`}
-                        >
-                          <div className="flex items-center">
-                            <Icon name={cat.icon} size={16} className={`mr-2 ${isSelected ? 'text-brand-red' : 'opacity-70'}`} />
-                            {cat.name}
-                          </div>
-                          {isSelected ? (
-                             <Icon name="ChevronDown" size={14} />
-                          ) : (
-                             <span className="text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full">{cat.count}</span>
-                          )}
-                        </button>
-                        
-                        {/* Subcategories Expansion */}
-                        {isSelected && cat.subcategories.length > 0 && (
-                          <div className="ml-2 pl-4 border-l-2 border-red-100 mt-1 space-y-1 animate-fadeIn">
-                             {/* "Ver todos" Option - Always Active if subcategory is empty or undefined */}
-                             <button
-                                onClick={(e) => handleSubcategoryChange(e, '')}
-                                className={`w-full text-left text-sm py-1.5 px-2 rounded transition-colors flex items-center justify-between ${!filters.subcategory || filters.subcategory === 'undefined' ? 'text-brand-red font-bold bg-white shadow-sm' : 'text-gray-500 hover:text-brand-red'}`}
-                             >
-                               <span>Ver todos em {cat.name}</span>
-                               {(!filters.subcategory || filters.subcategory === 'undefined') && <Icon name="CheckCircle" size={14} className="text-brand-red" />}
-                             </button>
 
-                             {/* List of Subcategories */}
-                             {cat.subcategories.map(sub => (
-                               <button
-                                 key={sub}
-                                 onClick={(e) => handleSubcategoryChange(e, sub)}
-                                 className={`w-full text-left text-sm py-1.5 px-2 rounded transition-colors flex items-center justify-between ${filters.subcategory === sub ? 'text-brand-red font-bold bg-white shadow-sm' : 'text-gray-500 hover:text-brand-red'}`}
-                               >
-                                 <span>{sub}</span>
-                                 {filters.subcategory === sub && <Icon name="CheckCircle" size={14} className="text-brand-red" />}
-                               </button>
-                             ))}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="h-px bg-gray-200 my-6"></div>
-
-              {/* Common Filters */}
+              {/* Common Filters - MOVED UP */}
               <div className="flex justify-between items-center mb-6">
-                 <h2 className="font-bold text-gray-900">Filtrar por</h2>
-                 <button 
-                    onClick={() => setFilters({ ...filters, minPrice: '', maxPrice: '', state: '', minYear: '', maxYear: '', bedrooms: '', condition: '' })}
-                    className="text-xs text-brand-red font-medium"
-                 >
-                   Limpar
-                 </button>
+                <h2 className="font-bold text-gray-900">Filtrar por</h2>
+                <button
+                  onClick={() => setFilters({ ...filters, minPrice: '', maxPrice: '', state: '', minYear: '', maxYear: '', bedrooms: '', condition: '' })}
+                  className="text-xs text-brand-red font-medium"
+                >
+                  Limpar
+                </button>
               </div>
 
               {/* Location Filter */}
@@ -380,10 +433,10 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Localização</label>
                 <div className="relative">
                   <Icon name="MapPin" size={16} className="absolute left-3 top-3 text-gray-400" />
-                  <select 
+                  <select
                     className="w-full pl-9 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none appearance-none"
                     value={filters.state}
-                    onChange={(e) => setFilters({...filters, state: e.target.value})}
+                    onChange={(e) => setFilters({ ...filters, state: e.target.value })}
                   >
                     <option value="">Todo Brasil</option>
                     {STATES.map(st => <option key={st} value={st}>{st}</option>)}
@@ -396,19 +449,19 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Preço (R$)</label>
                 <div className="flex gap-2">
-                  <input 
-                    type="number" 
-                    placeholder="Min" 
+                  <input
+                    type="number"
+                    placeholder="Min"
                     className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none"
                     value={filters.minPrice}
-                    onChange={(e) => setFilters({...filters, minPrice: e.target.value})}
+                    onChange={(e) => setFilters({ ...filters, minPrice: e.target.value })}
                   />
-                  <input 
-                    type="number" 
-                    placeholder="Max" 
+                  <input
+                    type="number"
+                    placeholder="Max"
                     className="w-1/2 p-2.5 bg-gray-50 border border-gray-200 rounded text-sm focus:border-brand-red focus:outline-none"
                     value={filters.maxPrice}
-                    onChange={(e) => setFilters({...filters, maxPrice: e.target.value})}
+                    onChange={(e) => setFilters({ ...filters, maxPrice: e.target.value })}
                   />
                 </div>
               </div>
@@ -416,15 +469,85 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
               {/* DYNAMIC FILTERS AREA */}
               {renderDynamicFilters()}
 
-              <button className="w-full bg-brand-red text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors mt-8 shadow-sm">
+              <button className="w-full bg-brand-red text-white font-bold py-3 rounded-lg hover:bg-red-700 transition-colors mt-8 mb-8 shadow-sm">
                 Aplicar Filtros
               </button>
+
+              <div className="h-px bg-gray-200 mb-8"></div>
+
+
+              {/* Category Navigation (Accordion Style) */}
+              <div className="mb-8">
+                <div className="flex justify-between items-center mb-4">
+                  <h2 className="font-bold text-gray-900">Categorias</h2>
+                  {filters.category && (
+                    <button
+                      onClick={() => handleCategoryChange('')}
+                      className="text-xs text-brand-red font-medium hover:underline"
+                    >
+                      Limpar filtro
+                    </button>
+                  )}
+                </div>
+
+                <div className="space-y-1 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+                  {CATEGORIES.map(cat => {
+                    const isSelected = filters.category === cat.id;
+
+                    return (
+                      <div key={cat.id} className="w-full">
+                        {/* Main Category Button */}
+                        <button
+                          onClick={() => handleCategoryChange(cat.id)}
+                          className={`w-full text-left flex items-center justify-between text-sm p-2 rounded transition-colors ${isSelected ? 'text-brand-red font-bold bg-red-50' : 'text-gray-600 hover:text-brand-red hover:bg-gray-50'}`}
+                        >
+                          <div className="flex items-center">
+                            <Icon name={cat.icon} size={16} className={`mr-2 ${isSelected ? 'text-brand-red' : 'opacity-70'}`} />
+                            {cat.name}
+                          </div>
+                          {isSelected ? (
+                            <Icon name="ChevronDown" size={14} />
+                          ) : (
+                            <span className="text-xs text-gray-400 bg-gray-100 px-1.5 py-0.5 rounded-full">{categoryCounts[cat.id] || 0}</span>
+                          )}
+                        </button>
+
+                        {/* Subcategories Expansion */}
+                        {isSelected && cat.subcategories.length > 0 && (
+                          <div className="ml-2 pl-4 border-l-2 border-red-100 mt-1 space-y-1 animate-fadeIn">
+                            {/* "Ver todos" Option - Always Active if subcategory is empty or undefined */}
+                            <button
+                              onClick={(e) => handleSubcategoryChange(e, '')}
+                              className={`w-full text-left text-sm py-1.5 px-2 rounded transition-colors flex items-center justify-between ${!filters.subcategory || filters.subcategory === 'undefined' ? 'text-brand-red font-bold bg-white shadow-sm' : 'text-gray-500 hover:text-brand-red'}`}
+                            >
+                              <span>Ver todos em {cat.name}</span>
+                              {(!filters.subcategory || filters.subcategory === 'undefined') && <Icon name="CheckCircle" size={14} className="text-brand-red" />}
+                            </button>
+
+                            {/* List of Subcategories */}
+                            {cat.subcategories.map(sub => (
+                              <button
+                                key={sub}
+                                onClick={(e) => handleSubcategoryChange(e, sub)}
+                                className={`w-full text-left text-sm py-1.5 px-2 rounded transition-colors flex items-center justify-between ${filters.subcategory === sub ? 'text-brand-red font-bold bg-white shadow-sm' : 'text-gray-500 hover:text-brand-red'}`}
+                              >
+                                <span>{sub}</span>
+                                {filters.subcategory === sub && <Icon name="CheckCircle" size={14} className="text-brand-red" />}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </aside>
 
           {/* Results Grid */}
           <main className="w-full lg:w-3/4">
-            
+
             {/* Sort & View Options */}
             <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
               <div className="text-sm text-gray-500">
@@ -443,7 +566,7 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
             {/* List */}
             {filteredAds.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredAds.map((ad) => (
+                {filteredAds.map((ad: Ad) => (
                   <AdCard key={ad.id} ad={ad} onClick={(id) => onNavigate('detail', { id })} />
                 ))}
               </div>
@@ -452,7 +575,7 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
                 <Icon name="Search" className="mx-auto text-gray-300 mb-4" size={48} />
                 <h3 className="text-xl font-bold text-gray-700">Nenhum anúncio encontrado</h3>
                 <p className="text-gray-500">Tente ajustar seus filtros de busca.</p>
-                <button 
+                <button
                   onClick={() => handleCategoryChange('')}
                   className="mt-4 text-brand-red font-semibold hover:underline"
                 >
@@ -466,13 +589,13 @@ const Listing: React.FC<ListingProps> = ({ onNavigate, params }) => {
               <div className="mt-12 flex justify-center">
                 <div className="flex gap-2">
                   <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50 disabled:opacity-50">
-                     &lt;
+                    &lt;
                   </button>
                   <button className="w-10 h-10 flex items-center justify-center rounded-lg bg-brand-red text-white font-bold shadow-md">1</button>
                   <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium">2</button>
                   <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 font-medium">3</button>
                   <button className="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-50">
-                     &gt;
+                    &gt;
                   </button>
                 </div>
               </div>

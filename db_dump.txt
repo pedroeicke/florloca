@@ -1,0 +1,84 @@
+Checking Categories...
+Categories found: 73
+Slug: alugar-casa-apartamento, Name: Alugar casas - Apartamentos, ID: 039cd729-8609-4998-8f81-911bf75bd99a
+Slug: carros-usados, Name: Carros usados, ID: 564ecd03-07b3-454c-90b9-a6b5b49bd2a6
+Slug: vagas-emprego, Name: Vagas de emprego, ID: 68297b5a-8c7d-46d3-9d0c-8507658be27a
+Slug: estagios-trainee, Name: Estágios - Trainee, ID: 0237edfe-3e46-4e38-8ecd-148c85f31d48
+Slug: curriculos, Name: Anunciar currículo - Procurar emprego, ID: c73c849e-5e06-4811-8dd4-880e7d46096a
+Slug: cuidador-idosos, Name: Acompanhante idosos - Enfermeira, ID: 0bc6dbfc-85b6-4398-afd3-8312cc53ebd2
+Slug: empregada-domestica, Name: Empregada doméstica - Diarista, ID: 892df413-c4bb-4299-8b32-9b4b8898bfa3
+Slug: trabalho-em-casa, Name: Trabalhar em casa, ID: 1a7b0b80-f3a4-4dbb-a262-4d0dbbae5ed7
+Slug: servicos-domesticos, Name: Trabalhos domésticos, ID: 4dd858e9-ec21-42b0-ab72-61ebb3e22c6f
+Slug: babas, Name: Babás, ID: 3e1cea27-ae66-4f18-92ed-37b7ef2b2a01
+Slug: servicos-informatica, Name: Serviços de informática, ID: 2147f56c-3dac-4cf5-8a67-51a8371bdc20
+Slug: cursos-idiomas, Name: Cursos de idiomas, ID: 4842960a-7580-4ceb-b990-f76b3f1fc68d
+Slug: animais-estimacao-venda, Name: Animais estimação à venda, ID: 22b0f404-4754-4362-9432-7b17b3ad7551
+Slug: celulares-acessorios, Name: MP3 - Ipod - Celulares, ID: 36d55683-8aea-4ea9-820f-27a77a63e6dd
+Slug: acompanhantes, Name: Acompanhantes, ID: f80f03a9-5b20-453f-a858-e77af6fd3a94
+Slug: motos-scooters, Name: Motos - Scooters, ID: 92e3f061-045a-4657-9abf-736f51095de7
+Slug: caminhoes-comerciais, Name: Caminhões - Comerciais, ID: 5ddf2abe-ea39-4f9f-bb11-4144cb5eaa1d
+Slug: onibus-venda, Name: Ônibus usados, ID: ab651029-8e42-487c-baa5-2c6caa3b6bab
+Slug: barcos-lanchas, Name: Barcos - Lanchas, ID: 69eacdd7-f356-459c-a5af-1c167e60a1e2
+Slug: pecas-acessorios, Name: Acessórios e serviços, ID: 851e27c3-5196-407c-a4b3-ee914d0ff4a9
+Slug: caravanas-trailers, Name: Caravanas - Trailers, ID: f4e74486-2e54-4514-a788-1c96948c57d2
+Slug: comprar-imovel, Name: Apartamentos - Casas venda, ID: 605cafe0-0911-44f3-95d9-ca9407da2e5c
+Slug: aluguel-temporada, Name: Aluguel temporada, ID: d3a0bdad-2e2c-4a92-babb-5d2ef07ba1a8
+Slug: lancamentos-imobiliarios, Name: Empreendimentos Imóveis, ID: 0a31d5fb-8472-485d-a4d2-82fb96377e7e
+Slug: garagens-venda, Name: Estacionamentos - Garagens, ID: 43f90889-0b37-4450-b83a-44fc2439a0fb
+Slug: imoveis-exterior, Name: Casas venda exterior, ID: b518fd6f-692c-490b-8e8f-ba62a9644273
+Slug: aluguel-temporada-exterior, Name: Aluguel temporada exterior, ID: dc84036c-0ede-4cbb-89d4-ac6e4ca85f8a
+Slug: terrenos-exterior, Name: Terrenos venda Exterior, ID: 55fe9730-c3f7-4b62-9fb0-8213ca657cd9
+Slug: pontos-comerciais, Name: Imóveis comerciais - Escritórios, ID: f8a2e680-33fd-44a7-b22c-57f5253da601
+Slug: terrenos-venda, Name: Terrenos - Lotes, ID: 3a19f59d-6863-4bbb-967b-3b124c6deafb
+Slug: aluguel-quarto, Name: Quartos - Compartilhar, ID: c107d9a1-a4ad-4cf3-8e4e-079f3e0ed259
+Slug: troca-de-imoveis, Name: Troca de casas - Apartamentos, ID: c1c36bbd-823d-4e1e-978b-de68289618c3
+Slug: moveis-decoracao, Name: Móveis-Camas-Cadeiras, ID: 241d0348-1b98-47e6-9bce-e689e4625a8c
+Slug: utilidades-domesticas, Name: Decoração casa, ID: c7fa0dd6-0a93-474d-98a1-ca89369555e4
+Slug: eletrodomesticos, Name: Eletrodomésticos usados, ID: 321be856-6fed-45f4-82e8-2ff5b790a8fe
+Slug: colecionaveis, Name: Artigos de coleção, ID: 7d739eed-022c-40c5-8a0c-ef859d1e9d50
+Slug: equipamentos-profissionais, Name: Equipamentos profissionais, ID: 23b07b90-394d-48ef-8a95-22ddc7ccc475
+Slug: esportes-lazer, Name: Artigos esportivos - Bicicletas, ID: f84dc77a-cf26-4925-bf81-f042e5181db5
+Slug: artesanato, Name: Artesanato - Feito à mão, ID: ba12bb72-a17e-41ca-b391-42ac6cc9bcdf
+Slug: presentes, Name: Idéias para presentes, ID: a3a6eb43-4804-4a0e-b5d4-c4e01e49e668
+Slug: instrumentos-musicais, Name: Instrumentos musicais, ID: 37902545-c141-408a-a773-45c6a399f1ce
+Slug: gastronomia, Name: Bebidas - Comidas, ID: 9eafa249-bdf1-4087-994c-62a159434313
+Slug: computadores-perifericos, Name: Notebooks - Computadores usados, ID: 0af59905-f508-45a0-9fee-8574b71846e0
+Slug: games-livros-filmes, Name: DVD - Video Games - Livros - CD, ID: 9e10a608-4504-4a05-a3ce-136338619585
+Slug: joias-relogios, Name: Antiguidades - Jóias, ID: 50563c95-bc4e-49cb-8482-87f5b58f4457
+Slug: roupas-calcados, Name: Roupas e acessórios, ID: 36ed5cba-5903-4892-9927-d246c9f244a6
+Slug: beleza-saude, Name: Produtos beleza - Saúde, ID: 2880486c-689a-46b4-b099-394b64bed4a3
+Slug: outros-produtos, Name: Diversos, ID: 640fadbd-58e1-4c9b-8c52-d04803bd00ee
+Slug: turismo, Name: Serviços turismo - Agência turismo, ID: 412c3884-5c3e-4694-96e8-53d8fb9cddad
+Slug: traducoes, Name: Traduções - Serviços de traduções, ID: 869ddd44-2549-492c-a7ed-e0c826da9da5
+Slug: mudancas-fretes, Name: Mudanças - Frete, ID: 7043ee7a-316b-4a62-8713-5b0870989c5c
+Slug: profissionais-liberais, Name: Profissionais liberais, ID: ccc88e1a-8045-459c-b64e-60418af37a2a
+Slug: reformas-manutencao, Name: Reparo - Conserto - Reforma, ID: 12685779-ffe9-4098-9bc0-c76f1c897f27
+Slug: saude-beleza, Name: Bem-Estar - Saúde - Beleza, ID: 8c994cd7-4c30-4b43-b5e4-fb2acaab6c40
+Slug: esoterismo, Name: Astrologia - Serv. Espirituais, ID: c4c2491d-bae2-43c1-b48f-5da043e7af8a
+Slug: outros-servicos, Name: Outros serviços, ID: ccdbb278-6f1f-4bb1-97ad-36c1b61568b4
+Slug: cursos-informatica, Name: Cursos de informática, ID: 6a300957-2a34-4f43-9a99-47a11bee6bfd
+Slug: cursos-profissionalizantes, Name: Capacitação profissional, ID: 98bd1fb4-fd46-494b-b057-47301c942119
+Slug: aulas-particulares, Name: Professores particulares, ID: 89843365-f44a-4119-8928-407607c70122
+Slug: esportes-danca, Name: Aulas de ginástica, ID: f7323529-03aa-419b-a9ed-bd9127bc4e13
+Slug: musica-teatro, Name: Aulas música-Teatro-Dança, ID: 4e76accb-d473-4eb4-8b93-eb5908240272
+Slug: outros-cursos, Name: Outros cursos, ID: 603898f9-fbb1-4a40-b636-073dc5a68efa
+Slug: adocao-animais, Name: Adoção animais de estimação, ID: 672d4890-05ff-48b4-8036-9132c9a49422
+Slug: servicos-animais, Name: Veterinários-Serviços-Acessórios, ID: f0cbb33f-faaa-4bc2-bfac-0d394af940c4
+Slug: acompanhantes-trans, Name: Acompanhantes trans, ID: d5848be5-af68-4acd-92f5-02d3fd2b4675
+Slug: acompanhantes-masculinos, Name: Acompanhantes masculinos, ID: ecd17c68-3d89-4c09-afd6-13484f679649
+Slug: amizade, Name: Procurar amigos, ID: 4dbd6a57-eb8e-4461-b062-ff53874a312a
+Slug: namoro, Name: Procurar amor, ID: 1465c523-11e9-4974-9ba4-ce213085743e
+Slug: mulher-procura-homem, Name: Mulher procura homem, ID: 96f35e15-78d6-4361-a732-c5cfaee546d6
+Slug: homem-procura-mulher, Name: Homem procura mulher, ID: 4688bf49-a82f-4866-a4a0-64a590d9ff46
+Slug: mulher-procura-mulher, Name: Mullher procura mulher, ID: 95408726-b584-4dc6-8683-f2c0a097bc82
+Slug: homem-procura-homem, Name: Homem procura homem, ID: 2dc87993-f2c2-41dc-8363-920a4fbfad47
+Slug: encontros, Name: Encontros casuais, ID: bdb57c31-74af-4232-b95c-b4d69ec3ee0e
+
+Checking Listings (Grouped by Category)...
+Total listings: 30
+Counts per Category Slug: {
+  "acompanhantes": 26,
+  "carros-usados": 4
+}
+
+Listings in 'autos' or 'carros': 0

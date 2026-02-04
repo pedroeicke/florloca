@@ -1,4 +1,5 @@
 
+
 export interface Ad {
   id: string;
   title: string;
@@ -13,18 +14,28 @@ export interface Ad {
   attributes: Record<string, string | number>;
   createdAt: string;
   isVip?: boolean; // Mantido para compatibilidade, mas o visual será guiado pelo 'tier'
-  tier?: 'free' | 'highlight' | 'premium'; 
-  // Adult Specific Fields
-  age?: number;
+  tier?: 'free' | 'highlight' | 'premium';
+  storeId?: string; // ID for linking to a store
   verified?: boolean;
   online?: boolean;
-  ethnicity?: string;
-  gender?: string;
-  languages?: string[];
-  targetAudience?: string[]; // "Atendo"
+  age?: number;
   services?: string[];
   rates?: { time: string; value: number }[];
-  locationType?: string; // "Local próprio, Hoteis..."
+  ethnicity?: string;
+  gender?: string;
+}
+
+export interface Store {
+  id: string;
+  name: string;
+  slug?: string;
+  description: string;
+  logo: string;
+  cover: string;
+  whatsapp?: string;
+  address?: string;
+  verified: boolean;
+  rating: number;
 }
 
 export interface Category {

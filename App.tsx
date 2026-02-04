@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -6,25 +5,35 @@ import Home from './pages/Home';
 import Listing from './pages/Listing';
 import Detail from './pages/Detail';
 import Publish from './pages/Publish';
-import AdultContentModal from './components/AdultContentModal';
-import { RESTRICTED_CATEGORIES } from './constants';
+import Auth from './pages/Auth';
+import Store from './pages/Store';
+import SellerProfile from './pages/SellerProfile';
+import Team from './pages/dashboard/Team';
+import Profile from './pages/Profile';
+import { UserSettings } from './pages/UserSettings';
+import { StoreSettings } from './pages/StoreSettings';
+import { supabase } from './supabaseClient';
+import { Session } from '@supabase/supabase-js';
 
 // Simple Hash Router Implementation to act as SPA without react-router dependency
 const App: React.FC = () => {
   const [route, setRoute] = useState('home');
   const [params, setParams] = useState<any>({});
-  
-  // Adult Content Logic
-  const [showAdultModal, setShowAdultModal] = useState(false);
-  const [pendingRoute, setPendingRoute] = useState<{page: string, params?: any} | null>(null);
-  
-  // Persist verification in sessionStorage so it survives page reloads but clears on browser close
-  const [isVerified, setIsVerified] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return sessionStorage.getItem('adult_verified') === 'true';
-    }
-    return false;
-  });
+  const [session, setSession] = useState<Session | null>(null);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -33,7 +42,7 @@ const App: React.FC = () => {
         setRoute('home');
         return;
       }
-      
+
       // Basic parsing: #page?param=value
       const [pagePart, queryPart] = hash.split('?');
       let newParams: any = {};
@@ -41,12 +50,6 @@ const App: React.FC = () => {
       if (queryPart) {
         const urlParams = new URLSearchParams(queryPart);
         newParams = Object.fromEntries(urlParams.entries());
-      }
-
-      // Check for direct link access to restricted categories
-      if (pagePart === 'listing' && newParams.category && RESTRICTED_CATEGORIES.includes(newParams.category)) {
-         // Logic to handle direct access could go here (e.g. redirect to home if not verified)
-         // For now, we rely on the modal flow triggered by navigation actions within the app
       }
 
       setRoute(pagePart || 'home');
@@ -60,16 +63,6 @@ const App: React.FC = () => {
   }, []);
 
   const navigate = (page: string, newParams?: any) => {
-    // Check if trying to access restricted category
-    if (page === 'listing' && newParams?.category && RESTRICTED_CATEGORIES.includes(newParams.category)) {
-      if (!isVerified) {
-        setPendingRoute({ page, params: newParams });
-        setShowAdultModal(true);
-        return;
-      }
-    }
-
-    // Normal navigation
     executeNavigation(page, newParams);
   };
 
@@ -82,22 +75,7 @@ const App: React.FC = () => {
     window.location.hash = hash;
   };
 
-  const handleAdultConfirm = () => {
-    setIsVerified(true);
-    sessionStorage.setItem('adult_verified', 'true');
-    setShowAdultModal(false);
-    if (pendingRoute) {
-      executeNavigation(pendingRoute.page, pendingRoute.params);
-      setPendingRoute(null);
-    }
-  };
 
-  const handleAdultCancel = () => {
-    setShowAdultModal(false);
-    setPendingRoute(null);
-    // If we were blocking a direct URL load, we would navigate to home here.
-    // Since we intercept before navigation, we just stay where we are.
-  };
 
   const renderPage = () => {
     switch (route) {
@@ -109,6 +87,25 @@ const App: React.FC = () => {
         return <Detail onNavigate={navigate} id={params.id} />;
       case 'publish':
         return <Publish onNavigate={navigate} />;
+      case 'auth':
+        return <Auth onNavigate={navigate} />;
+      case 'store':
+        return <Store onNavigate={navigate} id={params.id} slug={params.slug} />;
+      case 'seller-profile':
+        return <SellerProfile onNavigate={navigate} id={params.id} />;
+      case 'dashboard/team':
+        // Protected route assumption: Header handles login check or Team component redirects
+        return (
+          <div className="container mx-auto px-4 py-8">
+            <Team />
+          </div>
+        );
+      case 'profile':
+        return <Profile onNavigate={navigate} initialTab={params.tab as any} />;
+      case 'user-settings':
+        return <UserSettings onNavigate={navigate} />;
+      case 'store-settings':
+        return <StoreSettings onNavigate={navigate} />;
       default:
         return <Home onNavigate={navigate} />;
     }
@@ -116,13 +113,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen font-sans text-gray-900">
-      <Header onNavigate={navigate} />
-      
-      <AdultContentModal 
-        isOpen={showAdultModal} 
-        onConfirm={handleAdultConfirm} 
-        onCancel={handleAdultCancel} 
-      />
+      <Header onNavigate={navigate} session={session} />
 
       <main className="flex-grow">
         {renderPage()}
